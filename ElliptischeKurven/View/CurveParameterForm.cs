@@ -4,7 +4,7 @@ using EllipticCurves.Controller;
 namespace EllipticCurves.View
 {
     /// <summary>
-    /// Form zum Festlegen der Parameter a,b und p der elliptischen Kurve
+    /// Form to configure parameters a,b and p of the elliptic curve
     /// </summary>
     public partial class CurveParameterForm : Form
     {
@@ -16,12 +16,12 @@ namespace EllipticCurves.View
         /// </summary>
         public TextBox TextBoxParameterA
         {
-            get { return tBoxParameterA; }
+            get { return textBoxParameterA; }
         }
 
         public CheckBox CheckBoxCurveReal
         {
-            get { return cbReell; }
+            get { return checkBoxRealCurve; }
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace EllipticCurves.View
         /// </summary>
         public TextBox TextBoxParameterB
         {
-            get { return tBoxParameterB; }
+            get { return textBoxParameterB; }
         }
 
         /// <summary>
@@ -37,12 +37,12 @@ namespace EllipticCurves.View
         /// </summary>
         public TextBox TextBoxParameterP
         {
-            get { return tBoxParameterP; }
+            get { return textBoxParameterP; }
         }
 
         public Label LabelFormulaCurve
         {
-            get { return lAllgemeineFormelElliptischeKurve; }
+            get { return labelECFormula; }
         }
 
         /// <summary>
@@ -61,23 +61,23 @@ namespace EllipticCurves.View
             this.controller = controller;
         }
 
-        private void btnAbbrechen_Click(object sender, System.EventArgs e)
+        private void btnAbort_Click(object sender, System.EventArgs e)
         {
             Close();
         }
 
 
-        private void tBoxParameterA_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void textBoxParameterA_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            controller.ValidateAorB(tBoxParameterA);
+            controller.ValidateAorB(textBoxParameterA);
         }
 
-        private void tBoxParameterB_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void textBoxParameterB_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            controller.ValidateAorB(tBoxParameterB);
+            controller.ValidateAorB(textBoxParameterB);
         }
 
-        private void tBoxParameterP_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void textBoxParameterP_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             controller.ValidateP();
         }
@@ -91,16 +91,18 @@ namespace EllipticCurves.View
             else
             {
                 MessageBox.Show(
-                        "Bitte korrigieren Sie die fehlerhaften Eingaben!\n Hinweis:Wenn Sie mit der Maus über ein Fehlersymbol (Rotes Ausrufezeichen) fahren,"
-                        + " bekommen Sie nähere Informationen zum entsprechenden Fehler.",
-                        "Fehlerhafte Eingaben festgestellt", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        "Please correct any invalid inputs!\n " +
+                        "Hint: Hover with the mouse over an error symbol (red exclamation mark) " +
+                        "for further information about the error.",
+                        "Invalid inputs detected", MessageBoxButtons.OK, MessageBoxIcon.Error
+                        );
             }
 
         }
 
-        private void cbReell_CheckedChanged(object sender, System.EventArgs e)
+        private void checkBoxRealCurve_CheckedChanged(object sender, System.EventArgs e)
         {
-            controller.SetCurveReal(cbReell.Checked);
+            controller.SetCurveReal(checkBoxRealCurve.Checked);
         }
     }
 }

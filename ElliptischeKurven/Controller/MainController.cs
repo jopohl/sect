@@ -109,12 +109,12 @@ namespace EllipticCurves.Controller
                     lowerBorder = 1;
 
                 Form.SetLimitsForXmax(lowerBorder, 100);
-                Form.EnableNuDXmax(true);
+                Form.EnableNumericUpDownXmax(true);
             }
             else
             {
                 // Show X_Max for curves over Z_p but make it read only
-                Form.EnableNuDXmax(false);
+                Form.EnableNumericUpDownXmax(false);
                 Form.SetLimitsForXmax(1, int.MaxValue);
             }
             Form.NumericUpDownXmaxValue = ellipticCurve.Xmax;

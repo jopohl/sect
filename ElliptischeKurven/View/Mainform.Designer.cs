@@ -29,49 +29,49 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pbGraph = new System.Windows.Forms.PictureBox();
-            this.gBoxAktuelleKurve = new System.Windows.Forms.GroupBox();
+            this.picBoxGraph = new System.Windows.Forms.PictureBox();
+            this.groupBoxCurrentCurve = new System.Windows.Forms.GroupBox();
             this.flpAktuelleKurve = new System.Windows.Forms.FlowLayoutPanel();
-            this.lAktuelleKurve = new System.Windows.Forms.Label();
-            this.btnKurveAendern = new System.Windows.Forms.Button();
+            this.labelCurrentCurve = new System.Windows.Forms.Label();
+            this.btnConfigureKurve = new System.Windows.Forms.Button();
             this.btnAddition = new System.Windows.Forms.Button();
-            this.cBoxQ = new System.Windows.Forms.ComboBox();
-            this.lQ = new System.Windows.Forms.Label();
-            this.cBoxP = new System.Windows.Forms.ComboBox();
-            this.lP = new System.Windows.Forms.Label();
+            this.comboBoxQ = new System.Windows.Forms.ComboBox();
+            this.labelQ = new System.Windows.Forms.Label();
+            this.comboBoxP = new System.Windows.Forms.ComboBox();
+            this.labelP = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.cBoxS = new System.Windows.Forms.ComboBox();
+            this.comboBoxS = new System.Windows.Forms.ComboBox();
             this.flpAddition = new System.Windows.Forms.FlowLayoutPanel();
             this.panelP = new System.Windows.Forms.Panel();
             this.lPlus = new System.Windows.Forms.Label();
             this.panelQ = new System.Windows.Forms.Panel();
             this.lGleich = new System.Windows.Forms.Label();
             this.tBoxAddErgebnis = new System.Windows.Forms.TextBox();
-            this.btnShowAdditionRechnung = new System.Windows.Forms.Button();
+            this.btnShowAdditionLog = new System.Windows.Forms.Button();
             this.tlpHeader = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabAddition = new System.Windows.Forms.TabPage();
-            this.tabMultiplikation = new System.Windows.Forms.TabPage();
+            this.tabMultiplication = new System.Windows.Forms.TabPage();
             this.flpMultiplikation = new System.Windows.Forms.FlowLayoutPanel();
             this.panN = new System.Windows.Forms.Panel();
-            this.ln = new System.Windows.Forms.Label();
-            this.nudN = new System.Windows.Forms.NumericUpDown();
+            this.labelN = new System.Windows.Forms.Label();
+            this.numericUpDownN = new System.Windows.Forms.NumericUpDown();
             this.lMal = new System.Windows.Forms.Label();
             this.panelPMult = new System.Windows.Forms.Panel();
-            this.lS = new System.Windows.Forms.Label();
-            this.lGleichMult = new System.Windows.Forms.Label();
-            this.tBoxMultErgebnis = new System.Windows.Forms.TextBox();
+            this.labelS = new System.Windows.Forms.Label();
+            this.labelEqualMult = new System.Windows.Forms.Label();
+            this.textBoxMultResult = new System.Windows.Forms.TextBox();
             this.btnMultiply = new System.Windows.Forms.Button();
-            this.btnShowMultiplikationRechnung = new System.Windows.Forms.Button();
-            this.gbGraphoptionen = new System.Windows.Forms.GroupBox();
-            this.lxmax = new System.Windows.Forms.Label();
-            this.cbGleichesSeitenverhaeltnis = new System.Windows.Forms.CheckBox();
-            this.nudXmax = new System.Windows.Forms.NumericUpDown();
+            this.btnShowMultiplicationLog = new System.Windows.Forms.Button();
+            this.groupBoxGraphoptions = new System.Windows.Forms.GroupBox();
+            this.labelXMax = new System.Windows.Forms.Label();
+            this.checkBoxEqualAspectRatio = new System.Windows.Forms.CheckBox();
+            this.numericUpDownXMax = new System.Windows.Forms.NumericUpDown();
             this.btnSaveGraph = new System.Windows.Forms.Button();
             this.lCopyright = new System.Windows.Forms.Label();
             this.tlpFooter = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGraph)).BeginInit();
-            this.gBoxAktuelleKurve.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxGraph)).BeginInit();
+            this.groupBoxCurrentCurve.SuspendLayout();
             this.flpAktuelleKurve.SuspendLayout();
             this.flpAddition.SuspendLayout();
             this.panelP.SuspendLayout();
@@ -79,49 +79,49 @@
             this.tlpHeader.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabAddition.SuspendLayout();
-            this.tabMultiplikation.SuspendLayout();
+            this.tabMultiplication.SuspendLayout();
             this.flpMultiplikation.SuspendLayout();
             this.panN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownN)).BeginInit();
             this.panelPMult.SuspendLayout();
-            this.gbGraphoptionen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudXmax)).BeginInit();
+            this.groupBoxGraphoptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXMax)).BeginInit();
             this.tlpFooter.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pbGraph
+            // picBoxGraph
             // 
-            this.pbGraph.BackColor = System.Drawing.Color.White;
-            this.pbGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbGraph.Location = new System.Drawing.Point(0, 65);
-            this.pbGraph.MinimumSize = new System.Drawing.Size(100, 100);
-            this.pbGraph.Name = "pbGraph";
-            this.pbGraph.Size = new System.Drawing.Size(1211, 492);
-            this.pbGraph.TabIndex = 4;
-            this.pbGraph.TabStop = false;
-            this.pbGraph.SizeChanged += new System.EventHandler(this.pbGraph_SizeChanged);
-            this.pbGraph.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbGraph_MouseClick);
-            this.pbGraph.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbGraph_MouseMove);
+            this.picBoxGraph.BackColor = System.Drawing.Color.White;
+            this.picBoxGraph.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBoxGraph.Location = new System.Drawing.Point(0, 65);
+            this.picBoxGraph.MinimumSize = new System.Drawing.Size(100, 100);
+            this.picBoxGraph.Name = "picBoxGraph";
+            this.picBoxGraph.Size = new System.Drawing.Size(1211, 492);
+            this.picBoxGraph.TabIndex = 4;
+            this.picBoxGraph.TabStop = false;
+            this.picBoxGraph.SizeChanged += new System.EventHandler(this.picBoxGraph_SizeChanged);
+            this.picBoxGraph.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picBoxGraph_MouseClick);
+            this.picBoxGraph.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBoxGraph_MouseMove);
             // 
-            // gBoxAktuelleKurve
+            // groupBoxCurrentCurve
             // 
-            this.gBoxAktuelleKurve.AutoSize = true;
-            this.gBoxAktuelleKurve.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gBoxAktuelleKurve.Controls.Add(this.flpAktuelleKurve);
-            this.gBoxAktuelleKurve.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gBoxAktuelleKurve.Location = new System.Drawing.Point(3, 3);
-            this.gBoxAktuelleKurve.Name = "gBoxAktuelleKurve";
-            this.gBoxAktuelleKurve.Size = new System.Drawing.Size(300, 59);
-            this.gBoxAktuelleKurve.TabIndex = 6;
-            this.gBoxAktuelleKurve.TabStop = false;
-            this.gBoxAktuelleKurve.Text = "Aktuelle Kurve";
+            this.groupBoxCurrentCurve.AutoSize = true;
+            this.groupBoxCurrentCurve.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBoxCurrentCurve.Controls.Add(this.flpAktuelleKurve);
+            this.groupBoxCurrentCurve.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxCurrentCurve.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxCurrentCurve.Name = "groupBoxCurrentCurve";
+            this.groupBoxCurrentCurve.Size = new System.Drawing.Size(300, 59);
+            this.groupBoxCurrentCurve.TabIndex = 6;
+            this.groupBoxCurrentCurve.TabStop = false;
+            this.groupBoxCurrentCurve.Text = "Current Elliptic Curve";
             // 
             // flpAktuelleKurve
             // 
             this.flpAktuelleKurve.AutoSize = true;
             this.flpAktuelleKurve.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpAktuelleKurve.Controls.Add(this.lAktuelleKurve);
-            this.flpAktuelleKurve.Controls.Add(this.btnKurveAendern);
+            this.flpAktuelleKurve.Controls.Add(this.labelCurrentCurve);
+            this.flpAktuelleKurve.Controls.Add(this.btnConfigureKurve);
             this.flpAktuelleKurve.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpAktuelleKurve.Location = new System.Drawing.Point(3, 16);
             this.flpAktuelleKurve.Name = "flpAktuelleKurve";
@@ -130,26 +130,26 @@
             this.flpAktuelleKurve.TabIndex = 2;
             this.flpAktuelleKurve.WrapContents = false;
             // 
-            // lAktuelleKurve
+            // labelCurrentCurve
             // 
-            this.lAktuelleKurve.AutoSize = true;
-            this.lAktuelleKurve.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lAktuelleKurve.Location = new System.Drawing.Point(3, 8);
-            this.lAktuelleKurve.Name = "lAktuelleKurve";
-            this.lAktuelleKurve.Padding = new System.Windows.Forms.Padding(3, 3, 20, 0);
-            this.lAktuelleKurve.Size = new System.Drawing.Size(207, 21);
-            this.lAktuelleKurve.TabIndex = 7;
-            this.lAktuelleKurve.Text = "y² ≡ x³ + ax + b mod p";
+            this.labelCurrentCurve.AutoSize = true;
+            this.labelCurrentCurve.Font = new System.Drawing.Font("Consolas", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCurrentCurve.Location = new System.Drawing.Point(3, 8);
+            this.labelCurrentCurve.Name = "labelCurrentCurve";
+            this.labelCurrentCurve.Padding = new System.Windows.Forms.Padding(3, 3, 20, 0);
+            this.labelCurrentCurve.Size = new System.Drawing.Size(207, 21);
+            this.labelCurrentCurve.TabIndex = 7;
+            this.labelCurrentCurve.Text = "y² ≡ x³ + ax + b mod p";
             // 
-            // btnKurveAendern
+            // btnConfigureKurve
             // 
-            this.btnKurveAendern.Location = new System.Drawing.Point(216, 11);
-            this.btnKurveAendern.Name = "btnKurveAendern";
-            this.btnKurveAendern.Size = new System.Drawing.Size(75, 23);
-            this.btnKurveAendern.TabIndex = 1;
-            this.btnKurveAendern.Text = "Ändern...";
-            this.btnKurveAendern.UseVisualStyleBackColor = true;
-            this.btnKurveAendern.Click += new System.EventHandler(this.btnKurveAendern_Click);
+            this.btnConfigureKurve.Location = new System.Drawing.Point(216, 11);
+            this.btnConfigureKurve.Name = "btnConfigureKurve";
+            this.btnConfigureKurve.Size = new System.Drawing.Size(75, 23);
+            this.btnConfigureKurve.TabIndex = 1;
+            this.btnConfigureKurve.Text = "Configure...";
+            this.btnConfigureKurve.UseVisualStyleBackColor = true;
+            this.btnConfigureKurve.Click += new System.EventHandler(this.btnConfigureCurve_Click);
             // 
             // btnAddition
             // 
@@ -158,64 +158,64 @@
             this.btnAddition.Location = new System.Drawing.Point(642, 4);
             this.btnAddition.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddition.Name = "btnAddition";
-            this.btnAddition.Size = new System.Drawing.Size(69, 23);
+            this.btnAddition.Size = new System.Drawing.Size(61, 23);
             this.btnAddition.TabIndex = 8;
-            this.btnAddition.Text = "Berechnen";
+            this.btnAddition.Text = "Calculate";
             this.btnAddition.UseVisualStyleBackColor = true;
             this.btnAddition.Click += new System.EventHandler(this.btnAddition_Click);
             // 
-            // cBoxQ
+            // comboBoxQ
             // 
-            this.cBoxQ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxQ.FormattingEnabled = true;
-            this.cBoxQ.Location = new System.Drawing.Point(36, 3);
-            this.cBoxQ.Name = "cBoxQ";
-            this.cBoxQ.Size = new System.Drawing.Size(121, 21);
-            this.cBoxQ.TabIndex = 14;
-            this.toolTip.SetToolTip(this.cBoxQ, "Auswahl durch Rechtsklick im CoordinateSystem oder aus Liste.");
-            this.cBoxQ.SelectedIndexChanged += new System.EventHandler(this.cBoxQ_SelectedIndexChanged);
+            this.comboBoxQ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxQ.FormattingEnabled = true;
+            this.comboBoxQ.Location = new System.Drawing.Point(36, 3);
+            this.comboBoxQ.Name = "comboBoxQ";
+            this.comboBoxQ.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxQ.TabIndex = 14;
+            this.toolTip.SetToolTip(this.comboBoxQ, "Auswahl durch Rechtsklick im CoordinateSystem oder aus Liste.");
+            this.comboBoxQ.SelectedIndexChanged += new System.EventHandler(this.comboBoxQ_SelectedIndexChanged);
             // 
-            // lQ
+            // labelQ
             // 
-            this.lQ.AutoSize = true;
-            this.lQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lQ.Location = new System.Drawing.Point(3, 6);
-            this.lQ.Name = "lQ";
-            this.lQ.Size = new System.Drawing.Size(27, 13);
-            this.lQ.TabIndex = 13;
-            this.lQ.Text = "Q =";
+            this.labelQ.AutoSize = true;
+            this.labelQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelQ.Location = new System.Drawing.Point(3, 6);
+            this.labelQ.Name = "labelQ";
+            this.labelQ.Size = new System.Drawing.Size(27, 13);
+            this.labelQ.TabIndex = 13;
+            this.labelQ.Text = "Q =";
             // 
-            // cBoxP
+            // comboBoxP
             // 
-            this.cBoxP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxP.FormattingEnabled = true;
-            this.cBoxP.Location = new System.Drawing.Point(36, 3);
-            this.cBoxP.Name = "cBoxP";
-            this.cBoxP.Size = new System.Drawing.Size(121, 21);
-            this.cBoxP.TabIndex = 11;
-            this.toolTip.SetToolTip(this.cBoxP, "Auswahl durch Linksklick im CoordinateSystem oder aus Liste.\r\n");
-            this.cBoxP.SelectedIndexChanged += new System.EventHandler(this.cBoxP_SelectedIndexChanged);
+            this.comboBoxP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxP.FormattingEnabled = true;
+            this.comboBoxP.Location = new System.Drawing.Point(36, 3);
+            this.comboBoxP.Name = "comboBoxP";
+            this.comboBoxP.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxP.TabIndex = 11;
+            this.toolTip.SetToolTip(this.comboBoxP, "Auswahl durch Linksklick im CoordinateSystem oder aus Liste.\r\n");
+            this.comboBoxP.SelectedIndexChanged += new System.EventHandler(this.comboBoxP_SelectedIndexChanged);
             // 
-            // lP
+            // labelP
             // 
-            this.lP.AutoSize = true;
-            this.lP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lP.Location = new System.Drawing.Point(3, 6);
-            this.lP.Name = "lP";
-            this.lP.Size = new System.Drawing.Size(26, 13);
-            this.lP.TabIndex = 10;
-            this.lP.Text = "P =";
+            this.labelP.AutoSize = true;
+            this.labelP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP.Location = new System.Drawing.Point(3, 6);
+            this.labelP.Name = "labelP";
+            this.labelP.Size = new System.Drawing.Size(26, 13);
+            this.labelP.TabIndex = 10;
+            this.labelP.Text = "P =";
             // 
-            // cBoxS
+            // comboBoxS
             // 
-            this.cBoxS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxS.FormattingEnabled = true;
-            this.cBoxS.Location = new System.Drawing.Point(36, 3);
-            this.cBoxS.Name = "cBoxS";
-            this.cBoxS.Size = new System.Drawing.Size(121, 21);
-            this.cBoxS.TabIndex = 14;
-            this.toolTip.SetToolTip(this.cBoxS, "Auswahl durch Linksklick im CoordinateSystem oder aus Liste.");
-            this.cBoxS.SelectedIndexChanged += new System.EventHandler(this.cbS_SelectedIndexChanged);
+            this.comboBoxS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxS.FormattingEnabled = true;
+            this.comboBoxS.Location = new System.Drawing.Point(36, 3);
+            this.comboBoxS.Name = "comboBoxS";
+            this.comboBoxS.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxS.TabIndex = 14;
+            this.toolTip.SetToolTip(this.comboBoxS, "Auswahl durch Linksklick im CoordinateSystem oder aus Liste.");
+            this.comboBoxS.SelectedIndexChanged += new System.EventHandler(this.comboBoxS_SelectedIndexChanged);
             // 
             // flpAddition
             // 
@@ -227,7 +227,7 @@
             this.flpAddition.Controls.Add(this.lGleich);
             this.flpAddition.Controls.Add(this.tBoxAddErgebnis);
             this.flpAddition.Controls.Add(this.btnAddition);
-            this.flpAddition.Controls.Add(this.btnShowAdditionRechnung);
+            this.flpAddition.Controls.Add(this.btnShowAdditionLog);
             this.flpAddition.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpAddition.Location = new System.Drawing.Point(3, 3);
             this.flpAddition.Margin = new System.Windows.Forms.Padding(0);
@@ -239,8 +239,8 @@
             // 
             this.panelP.AutoSize = true;
             this.panelP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelP.Controls.Add(this.lP);
-            this.panelP.Controls.Add(this.cBoxP);
+            this.panelP.Controls.Add(this.labelP);
+            this.panelP.Controls.Add(this.comboBoxP);
             this.panelP.Location = new System.Drawing.Point(3, 3);
             this.panelP.Name = "panelP";
             this.panelP.Size = new System.Drawing.Size(160, 27);
@@ -261,8 +261,8 @@
             // 
             this.panelQ.AutoSize = true;
             this.panelQ.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelQ.Controls.Add(this.lQ);
-            this.panelQ.Controls.Add(this.cBoxQ);
+            this.panelQ.Controls.Add(this.labelQ);
+            this.panelQ.Controls.Add(this.comboBoxQ);
             this.panelQ.Location = new System.Drawing.Point(189, 3);
             this.panelQ.Name = "panelQ";
             this.panelQ.Size = new System.Drawing.Size(160, 27);
@@ -296,18 +296,18 @@
             this.tBoxAddErgebnis.Text = "R";
             this.tBoxAddErgebnis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnShowAdditionRechnung
+            // btnShowAdditionLog
             // 
-            this.btnShowAdditionRechnung.AutoSize = true;
-            this.btnShowAdditionRechnung.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnShowAdditionRechnung.Location = new System.Drawing.Point(719, 4);
-            this.btnShowAdditionRechnung.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowAdditionRechnung.Name = "btnShowAdditionRechnung";
-            this.btnShowAdditionRechnung.Size = new System.Drawing.Size(122, 23);
-            this.btnShowAdditionRechnung.TabIndex = 20;
-            this.btnShowAdditionRechnung.Text = "Rechnung anzeigen...";
-            this.btnShowAdditionRechnung.UseVisualStyleBackColor = true;
-            this.btnShowAdditionRechnung.Click += new System.EventHandler(this.btnShowAdditionRechnung_Click);
+            this.btnShowAdditionLog.AutoSize = true;
+            this.btnShowAdditionLog.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnShowAdditionLog.Location = new System.Drawing.Point(711, 4);
+            this.btnShowAdditionLog.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowAdditionLog.Name = "btnShowAdditionLog";
+            this.btnShowAdditionLog.Size = new System.Drawing.Size(107, 23);
+            this.btnShowAdditionLog.TabIndex = 20;
+            this.btnShowAdditionLog.Text = "Show calculation...";
+            this.btnShowAdditionLog.UseVisualStyleBackColor = true;
+            this.btnShowAdditionLog.Click += new System.EventHandler(this.btnShowAdditionLog_Click);
             // 
             // tlpHeader
             // 
@@ -315,7 +315,7 @@
             this.tlpHeader.ColumnCount = 2;
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpHeader.Controls.Add(this.gBoxAktuelleKurve, 0, 0);
+            this.tlpHeader.Controls.Add(this.groupBoxCurrentCurve, 0, 0);
             this.tlpHeader.Controls.Add(this.tabControl, 1, 0);
             this.tlpHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.tlpHeader.Location = new System.Drawing.Point(0, 0);
@@ -328,7 +328,7 @@
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabAddition);
-            this.tabControl.Controls.Add(this.tabMultiplikation);
+            this.tabControl.Controls.Add(this.tabMultiplication);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(309, 3);
             this.tabControl.Name = "tabControl";
@@ -348,16 +348,16 @@
             this.tabAddition.TabIndex = 0;
             this.tabAddition.Text = "Addition P + Q = R";
             // 
-            // tabMultiplikation
+            // tabMultiplication
             // 
-            this.tabMultiplikation.BackColor = System.Drawing.SystemColors.Control;
-            this.tabMultiplikation.Controls.Add(this.flpMultiplikation);
-            this.tabMultiplikation.Location = new System.Drawing.Point(4, 22);
-            this.tabMultiplikation.Name = "tabMultiplikation";
-            this.tabMultiplikation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMultiplikation.Size = new System.Drawing.Size(891, 33);
-            this.tabMultiplikation.TabIndex = 1;
-            this.tabMultiplikation.Text = "Multiplikation n * S";
+            this.tabMultiplication.BackColor = System.Drawing.SystemColors.Control;
+            this.tabMultiplication.Controls.Add(this.flpMultiplikation);
+            this.tabMultiplication.Location = new System.Drawing.Point(4, 22);
+            this.tabMultiplication.Name = "tabMultiplication";
+            this.tabMultiplication.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMultiplication.Size = new System.Drawing.Size(891, 33);
+            this.tabMultiplication.TabIndex = 1;
+            this.tabMultiplication.Text = "Multiplication n * S";
             // 
             // flpMultiplikation
             // 
@@ -366,10 +366,10 @@
             this.flpMultiplikation.Controls.Add(this.panN);
             this.flpMultiplikation.Controls.Add(this.lMal);
             this.flpMultiplikation.Controls.Add(this.panelPMult);
-            this.flpMultiplikation.Controls.Add(this.lGleichMult);
-            this.flpMultiplikation.Controls.Add(this.tBoxMultErgebnis);
+            this.flpMultiplikation.Controls.Add(this.labelEqualMult);
+            this.flpMultiplikation.Controls.Add(this.textBoxMultResult);
             this.flpMultiplikation.Controls.Add(this.btnMultiply);
-            this.flpMultiplikation.Controls.Add(this.btnShowMultiplikationRechnung);
+            this.flpMultiplikation.Controls.Add(this.btnShowMultiplicationLog);
             this.flpMultiplikation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpMultiplikation.Location = new System.Drawing.Point(3, 3);
             this.flpMultiplikation.Margin = new System.Windows.Forms.Padding(0);
@@ -381,40 +381,40 @@
             // 
             this.panN.AutoSize = true;
             this.panN.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panN.Controls.Add(this.ln);
-            this.panN.Controls.Add(this.nudN);
+            this.panN.Controls.Add(this.labelN);
+            this.panN.Controls.Add(this.numericUpDownN);
             this.panN.Location = new System.Drawing.Point(3, 3);
             this.panN.Name = "panN";
             this.panN.Size = new System.Drawing.Size(107, 26);
             this.panN.TabIndex = 16;
             // 
-            // ln
+            // labelN
             // 
-            this.ln.AutoSize = true;
-            this.ln.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ln.Location = new System.Drawing.Point(3, 6);
-            this.ln.Name = "ln";
-            this.ln.Size = new System.Drawing.Size(25, 13);
-            this.ln.TabIndex = 10;
-            this.ln.Text = "n =";
+            this.labelN.AutoSize = true;
+            this.labelN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelN.Location = new System.Drawing.Point(3, 6);
+            this.labelN.Name = "labelN";
+            this.labelN.Size = new System.Drawing.Size(25, 13);
+            this.labelN.TabIndex = 10;
+            this.labelN.Text = "n =";
             // 
-            // nudN
+            // numericUpDownN
             // 
-            this.nudN.Location = new System.Drawing.Point(34, 3);
-            this.nudN.Maximum = new decimal(new int[] {
+            this.numericUpDownN.Location = new System.Drawing.Point(34, 3);
+            this.numericUpDownN.Maximum = new decimal(new int[] {
             9999,
             0,
             0,
             0});
-            this.nudN.Minimum = new decimal(new int[] {
+            this.numericUpDownN.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nudN.Name = "nudN";
-            this.nudN.Size = new System.Drawing.Size(70, 20);
-            this.nudN.TabIndex = 19;
-            this.nudN.Value = new decimal(new int[] {
+            this.numericUpDownN.Name = "numericUpDownN";
+            this.numericUpDownN.Size = new System.Drawing.Size(70, 20);
+            this.numericUpDownN.TabIndex = 19;
+            this.numericUpDownN.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -435,50 +435,50 @@
             // 
             this.panelPMult.AutoSize = true;
             this.panelPMult.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelPMult.Controls.Add(this.lS);
-            this.panelPMult.Controls.Add(this.cBoxS);
+            this.panelPMult.Controls.Add(this.labelS);
+            this.panelPMult.Controls.Add(this.comboBoxS);
             this.panelPMult.Location = new System.Drawing.Point(134, 3);
             this.panelPMult.Name = "panelPMult";
             this.panelPMult.Size = new System.Drawing.Size(160, 27);
             this.panelPMult.TabIndex = 17;
             // 
-            // lS
+            // labelS
             // 
-            this.lS.AutoSize = true;
-            this.lS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lS.Location = new System.Drawing.Point(3, 6);
-            this.lS.Name = "lS";
-            this.lS.Size = new System.Drawing.Size(26, 13);
-            this.lS.TabIndex = 13;
-            this.lS.Text = "S =";
+            this.labelS.AutoSize = true;
+            this.labelS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelS.Location = new System.Drawing.Point(3, 6);
+            this.labelS.Name = "labelS";
+            this.labelS.Size = new System.Drawing.Size(26, 13);
+            this.labelS.TabIndex = 13;
+            this.labelS.Text = "S =";
             // 
-            // lGleichMult
+            // labelEqualMult
             // 
-            this.lGleichMult.AutoSize = true;
-            this.lGleichMult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lGleichMult.Location = new System.Drawing.Point(300, 8);
-            this.lGleichMult.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
-            this.lGleichMult.Name = "lGleichMult";
-            this.lGleichMult.Size = new System.Drawing.Size(14, 13);
-            this.lGleichMult.TabIndex = 19;
-            this.lGleichMult.Text = "=";
+            this.labelEqualMult.AutoSize = true;
+            this.labelEqualMult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEqualMult.Location = new System.Drawing.Point(300, 8);
+            this.labelEqualMult.Margin = new System.Windows.Forms.Padding(3, 8, 3, 0);
+            this.labelEqualMult.Name = "labelEqualMult";
+            this.labelEqualMult.Size = new System.Drawing.Size(14, 13);
+            this.labelEqualMult.TabIndex = 19;
+            this.labelEqualMult.Text = "=";
             // 
-            // tBoxMultErgebnis
+            // textBoxMultResult
             // 
-            this.tBoxMultErgebnis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tBoxMultErgebnis.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tBoxMultErgebnis.CausesValidation = false;
-            this.tBoxMultErgebnis.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tBoxMultErgebnis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.tBoxMultErgebnis.Location = new System.Drawing.Point(320, 7);
-            this.tBoxMultErgebnis.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
-            this.tBoxMultErgebnis.MinimumSize = new System.Drawing.Size(0, 18);
-            this.tBoxMultErgebnis.Name = "tBoxMultErgebnis";
-            this.tBoxMultErgebnis.ReadOnly = true;
-            this.tBoxMultErgebnis.Size = new System.Drawing.Size(260, 18);
-            this.tBoxMultErgebnis.TabIndex = 16;
-            this.tBoxMultErgebnis.Text = "n * S";
-            this.tBoxMultErgebnis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxMultResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBoxMultResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxMultResult.CausesValidation = false;
+            this.textBoxMultResult.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMultResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.textBoxMultResult.Location = new System.Drawing.Point(320, 7);
+            this.textBoxMultResult.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.textBoxMultResult.MinimumSize = new System.Drawing.Size(0, 18);
+            this.textBoxMultResult.Name = "textBoxMultResult";
+            this.textBoxMultResult.ReadOnly = true;
+            this.textBoxMultResult.Size = new System.Drawing.Size(260, 18);
+            this.textBoxMultResult.TabIndex = 16;
+            this.textBoxMultResult.Text = "n * S";
+            this.textBoxMultResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnMultiply
             // 
@@ -487,73 +487,73 @@
             this.btnMultiply.Location = new System.Drawing.Point(587, 4);
             this.btnMultiply.Margin = new System.Windows.Forms.Padding(4);
             this.btnMultiply.Name = "btnMultiply";
-            this.btnMultiply.Size = new System.Drawing.Size(69, 23);
+            this.btnMultiply.Size = new System.Drawing.Size(61, 23);
             this.btnMultiply.TabIndex = 8;
-            this.btnMultiply.Text = "Berechnen";
+            this.btnMultiply.Text = "Calculate";
             this.btnMultiply.UseVisualStyleBackColor = true;
             this.btnMultiply.Click += new System.EventHandler(this.btnMultiply_Click);
             // 
-            // btnShowMultiplikationRechnung
+            // btnShowMultiplicationLog
             // 
-            this.btnShowMultiplikationRechnung.AutoSize = true;
-            this.btnShowMultiplikationRechnung.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnShowMultiplikationRechnung.Location = new System.Drawing.Point(664, 4);
-            this.btnShowMultiplikationRechnung.Margin = new System.Windows.Forms.Padding(4);
-            this.btnShowMultiplikationRechnung.Name = "btnShowMultiplikationRechnung";
-            this.btnShowMultiplikationRechnung.Size = new System.Drawing.Size(122, 23);
-            this.btnShowMultiplikationRechnung.TabIndex = 20;
-            this.btnShowMultiplikationRechnung.Text = "Rechnung anzeigen...";
-            this.btnShowMultiplikationRechnung.UseVisualStyleBackColor = true;
-            this.btnShowMultiplikationRechnung.Click += new System.EventHandler(this.btnShowMultiplikationRechnung_Click);
+            this.btnShowMultiplicationLog.AutoSize = true;
+            this.btnShowMultiplicationLog.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnShowMultiplicationLog.Location = new System.Drawing.Point(656, 4);
+            this.btnShowMultiplicationLog.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowMultiplicationLog.Name = "btnShowMultiplicationLog";
+            this.btnShowMultiplicationLog.Size = new System.Drawing.Size(107, 23);
+            this.btnShowMultiplicationLog.TabIndex = 20;
+            this.btnShowMultiplicationLog.Text = "Show calculation...";
+            this.btnShowMultiplicationLog.UseVisualStyleBackColor = true;
+            this.btnShowMultiplicationLog.Click += new System.EventHandler(this.btnShowMultiplikationLog_Click);
             // 
-            // gbGraphoptionen
+            // groupBoxGraphoptions
             // 
-            this.gbGraphoptionen.AutoSize = true;
-            this.gbGraphoptionen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gbGraphoptionen.Controls.Add(this.lxmax);
-            this.gbGraphoptionen.Controls.Add(this.cbGleichesSeitenverhaeltnis);
-            this.gbGraphoptionen.Controls.Add(this.nudXmax);
-            this.gbGraphoptionen.Controls.Add(this.btnSaveGraph);
-            this.gbGraphoptionen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbGraphoptionen.Location = new System.Drawing.Point(3, 3);
-            this.gbGraphoptionen.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.gbGraphoptionen.Name = "gbGraphoptionen";
-            this.gbGraphoptionen.Size = new System.Drawing.Size(441, 56);
-            this.gbGraphoptionen.TabIndex = 17;
-            this.gbGraphoptionen.TabStop = false;
-            this.gbGraphoptionen.Text = "Graphoptionen";
+            this.groupBoxGraphoptions.AutoSize = true;
+            this.groupBoxGraphoptions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBoxGraphoptions.Controls.Add(this.labelXMax);
+            this.groupBoxGraphoptions.Controls.Add(this.checkBoxEqualAspectRatio);
+            this.groupBoxGraphoptions.Controls.Add(this.numericUpDownXMax);
+            this.groupBoxGraphoptions.Controls.Add(this.btnSaveGraph);
+            this.groupBoxGraphoptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxGraphoptions.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxGraphoptions.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.groupBoxGraphoptions.Name = "groupBoxGraphoptions";
+            this.groupBoxGraphoptions.Size = new System.Drawing.Size(441, 56);
+            this.groupBoxGraphoptions.TabIndex = 17;
+            this.groupBoxGraphoptions.TabStop = false;
+            this.groupBoxGraphoptions.Text = "Graph options";
             // 
-            // lxmax
+            // labelXMax
             // 
-            this.lxmax.AutoSize = true;
-            this.lxmax.Location = new System.Drawing.Point(156, 16);
-            this.lxmax.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lxmax.Name = "lxmax";
-            this.lxmax.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.lxmax.Size = new System.Drawing.Size(46, 17);
-            this.lxmax.TabIndex = 1;
-            this.lxmax.Text = "x_max =";
+            this.labelXMax.AutoSize = true;
+            this.labelXMax.Location = new System.Drawing.Point(156, 16);
+            this.labelXMax.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.labelXMax.Name = "labelXMax";
+            this.labelXMax.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.labelXMax.Size = new System.Drawing.Size(46, 17);
+            this.labelXMax.TabIndex = 1;
+            this.labelXMax.Text = "x_max =";
             // 
-            // cbGleichesSeitenverhaeltnis
+            // checkBoxEqualAspectRatio
             // 
-            this.cbGleichesSeitenverhaeltnis.AutoSize = true;
-            this.cbGleichesSeitenverhaeltnis.Location = new System.Drawing.Point(6, 19);
-            this.cbGleichesSeitenverhaeltnis.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.cbGleichesSeitenverhaeltnis.Name = "cbGleichesSeitenverhaeltnis";
-            this.cbGleichesSeitenverhaeltnis.Size = new System.Drawing.Size(145, 17);
-            this.cbGleichesSeitenverhaeltnis.TabIndex = 0;
-            this.cbGleichesSeitenverhaeltnis.Text = "Gleiches Seitenverhältnis";
-            this.cbGleichesSeitenverhaeltnis.UseVisualStyleBackColor = true;
-            this.cbGleichesSeitenverhaeltnis.CheckedChanged += new System.EventHandler(this.cbGleichesSeitenverhaeltnis_CheckedChanged);
+            this.checkBoxEqualAspectRatio.AutoSize = true;
+            this.checkBoxEqualAspectRatio.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxEqualAspectRatio.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.checkBoxEqualAspectRatio.Name = "checkBoxEqualAspectRatio";
+            this.checkBoxEqualAspectRatio.Size = new System.Drawing.Size(111, 17);
+            this.checkBoxEqualAspectRatio.TabIndex = 0;
+            this.checkBoxEqualAspectRatio.Text = "Equal aspect ratio";
+            this.checkBoxEqualAspectRatio.UseVisualStyleBackColor = true;
+            this.checkBoxEqualAspectRatio.CheckedChanged += new System.EventHandler(this.checkBoxEqualAspectRatio_CheckedChanged);
             // 
-            // nudXmax
+            // numericUpDownXMax
             // 
-            this.nudXmax.Location = new System.Drawing.Point(205, 19);
-            this.nudXmax.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.nudXmax.Name = "nudXmax";
-            this.nudXmax.Size = new System.Drawing.Size(120, 20);
-            this.nudXmax.TabIndex = 2;
-            this.nudXmax.ValueChanged += new System.EventHandler(this.nudXmax_ValueChanged);
+            this.numericUpDownXMax.Location = new System.Drawing.Point(205, 19);
+            this.numericUpDownXMax.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.numericUpDownXMax.Name = "numericUpDownXMax";
+            this.numericUpDownXMax.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownXMax.TabIndex = 2;
+            this.numericUpDownXMax.ValueChanged += new System.EventHandler(this.numericUpDownXmax_ValueChanged);
             // 
             // btnSaveGraph
             // 
@@ -563,7 +563,7 @@
             this.btnSaveGraph.Name = "btnSaveGraph";
             this.btnSaveGraph.Size = new System.Drawing.Size(104, 23);
             this.btnSaveGraph.TabIndex = 3;
-            this.btnSaveGraph.Text = "Graph speichern...";
+            this.btnSaveGraph.Text = "Save graph...";
             this.btnSaveGraph.UseVisualStyleBackColor = true;
             this.btnSaveGraph.Click += new System.EventHandler(this.btnSaveGraph_Click);
             // 
@@ -571,12 +571,12 @@
             // 
             this.lCopyright.AutoSize = true;
             this.lCopyright.BackColor = System.Drawing.Color.Black;
-            this.lCopyright.Font = new System.Drawing.Font("Droid Sans Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lCopyright.ForeColor = System.Drawing.Color.Red;
-            this.lCopyright.Location = new System.Drawing.Point(1033, 25);
+            this.lCopyright.Location = new System.Drawing.Point(1066, 25);
             this.lCopyright.Margin = new System.Windows.Forms.Padding(3, 25, 3, 0);
             this.lCopyright.Name = "lCopyright";
-            this.lCopyright.Size = new System.Drawing.Size(175, 15);
+            this.lCopyright.Size = new System.Drawing.Size(142, 16);
             this.lCopyright.TabIndex = 17;
             this.lCopyright.Text = "© Johannes Pohl, 2012";
             // 
@@ -587,7 +587,7 @@
             this.tlpFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpFooter.Controls.Add(this.gbGraphoptionen, 0, 0);
+            this.tlpFooter.Controls.Add(this.groupBoxGraphoptions, 0, 0);
             this.tlpFooter.Controls.Add(this.lCopyright, 2, 0);
             this.tlpFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tlpFooter.Location = new System.Drawing.Point(0, 557);
@@ -599,19 +599,19 @@
             this.tlpFooter.TabIndex = 18;
             this.tlpFooter.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tlpFooter_CellPaint);
             // 
-            // Hauptform
+            // Mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 616);
-            this.Controls.Add(this.pbGraph);
+            this.Controls.Add(this.picBoxGraph);
             this.Controls.Add(this.tlpFooter);
             this.Controls.Add(this.tlpHeader);
-            this.Name = "Hauptform";
-            this.Text = "Elliptische Kurven Tool";
-            ((System.ComponentModel.ISupportInitialize)(this.pbGraph)).EndInit();
-            this.gBoxAktuelleKurve.ResumeLayout(false);
-            this.gBoxAktuelleKurve.PerformLayout();
+            this.Name = "Mainform";
+            this.Text = "Simple Elliptic Curve Tool";
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxGraph)).EndInit();
+            this.groupBoxCurrentCurve.ResumeLayout(false);
+            this.groupBoxCurrentCurve.PerformLayout();
             this.flpAktuelleKurve.ResumeLayout(false);
             this.flpAktuelleKurve.PerformLayout();
             this.flpAddition.ResumeLayout(false);
@@ -625,18 +625,18 @@
             this.tabControl.ResumeLayout(false);
             this.tabAddition.ResumeLayout(false);
             this.tabAddition.PerformLayout();
-            this.tabMultiplikation.ResumeLayout(false);
-            this.tabMultiplikation.PerformLayout();
+            this.tabMultiplication.ResumeLayout(false);
+            this.tabMultiplication.PerformLayout();
             this.flpMultiplikation.ResumeLayout(false);
             this.flpMultiplikation.PerformLayout();
             this.panN.ResumeLayout(false);
             this.panN.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownN)).EndInit();
             this.panelPMult.ResumeLayout(false);
             this.panelPMult.PerformLayout();
-            this.gbGraphoptionen.ResumeLayout(false);
-            this.gbGraphoptionen.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudXmax)).EndInit();
+            this.groupBoxGraphoptions.ResumeLayout(false);
+            this.groupBoxGraphoptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownXMax)).EndInit();
             this.tlpFooter.ResumeLayout(false);
             this.tlpFooter.PerformLayout();
             this.ResumeLayout(false);
@@ -646,16 +646,16 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pbGraph;
-        private System.Windows.Forms.GroupBox gBoxAktuelleKurve;
+        private System.Windows.Forms.PictureBox picBoxGraph;
+        private System.Windows.Forms.GroupBox groupBoxCurrentCurve;
         private System.Windows.Forms.FlowLayoutPanel flpAktuelleKurve;
-        private System.Windows.Forms.Label lAktuelleKurve;
-        private System.Windows.Forms.Button btnKurveAendern;
+        private System.Windows.Forms.Label labelCurrentCurve;
+        private System.Windows.Forms.Button btnConfigureKurve;
         private System.Windows.Forms.Button btnAddition;
-        private System.Windows.Forms.ComboBox cBoxQ;
-        private System.Windows.Forms.Label lQ;
-        private System.Windows.Forms.ComboBox cBoxP;
-        private System.Windows.Forms.Label lP;
+        private System.Windows.Forms.ComboBox comboBoxQ;
+        private System.Windows.Forms.Label labelQ;
+        private System.Windows.Forms.ComboBox comboBoxP;
+        private System.Windows.Forms.Label labelP;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.FlowLayoutPanel flpAddition;
         private System.Windows.Forms.Panel panelP;
@@ -664,26 +664,26 @@
         private System.Windows.Forms.Label lPlus;
         private System.Windows.Forms.Label lGleich;
         private System.Windows.Forms.TextBox tBoxAddErgebnis;
-        private System.Windows.Forms.Button btnShowAdditionRechnung;
+        private System.Windows.Forms.Button btnShowAdditionLog;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabAddition;
-        private System.Windows.Forms.TabPage tabMultiplikation;
+        private System.Windows.Forms.TabPage tabMultiplication;
         private System.Windows.Forms.FlowLayoutPanel flpMultiplikation;
         private System.Windows.Forms.Panel panN;
-        private System.Windows.Forms.Label ln;
-        private System.Windows.Forms.NumericUpDown nudN;
+        private System.Windows.Forms.Label labelN;
+        private System.Windows.Forms.NumericUpDown numericUpDownN;
         private System.Windows.Forms.Label lMal;
         private System.Windows.Forms.Panel panelPMult;
-        private System.Windows.Forms.Label lS;
-        private System.Windows.Forms.ComboBox cBoxS;
-        private System.Windows.Forms.Label lGleichMult;
-        private System.Windows.Forms.TextBox tBoxMultErgebnis;
+        private System.Windows.Forms.Label labelS;
+        private System.Windows.Forms.ComboBox comboBoxS;
+        private System.Windows.Forms.Label labelEqualMult;
+        private System.Windows.Forms.TextBox textBoxMultResult;
         private System.Windows.Forms.Button btnMultiply;
-        private System.Windows.Forms.Button btnShowMultiplikationRechnung;
-        private System.Windows.Forms.GroupBox gbGraphoptionen;
-        private System.Windows.Forms.Label lxmax;
-        private System.Windows.Forms.CheckBox cbGleichesSeitenverhaeltnis;
-        private System.Windows.Forms.NumericUpDown nudXmax;
+        private System.Windows.Forms.Button btnShowMultiplicationLog;
+        private System.Windows.Forms.GroupBox groupBoxGraphoptions;
+        private System.Windows.Forms.Label labelXMax;
+        private System.Windows.Forms.CheckBox checkBoxEqualAspectRatio;
+        private System.Windows.Forms.NumericUpDown numericUpDownXMax;
         private System.Windows.Forms.Button btnSaveGraph;
         private System.Windows.Forms.Label lCopyright;
         private System.Windows.Forms.TableLayoutPanel tlpFooter;

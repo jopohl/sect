@@ -16,19 +16,19 @@ namespace EllipticCurves.View
 
         public TextBox TextBoxMultiplicationResult
         {
-            get { return tBoxMultErgebnis; }
+            get { return textBoxMultResult; }
         }
 
         public bool AdditionLogButtonEnabled
         {
-            get { return btnShowAdditionRechnung.Enabled; }
-            set { btnShowAdditionRechnung.Enabled = value; }
+            get { return btnShowAdditionLog.Enabled; }
+            set { btnShowAdditionLog.Enabled = value; }
         }
 
         public bool MultiplicationLogButtonEnabled
         {
-            get { return btnShowMultiplikationRechnung.Enabled; }
-            set { btnShowMultiplikationRechnung.Enabled = value; }
+            get { return btnShowMultiplicationLog.Enabled; }
+            set { btnShowMultiplicationLog.Enabled = value; }
         }
 
         public bool IsAdditionTabActive
@@ -38,43 +38,43 @@ namespace EllipticCurves.View
 
         public int NumericUpDownXmaxValue
         {
-            get { return (int)System.Math.Round(nudXmax.Value, MidpointRounding.AwayFromZero); }
-            set { nudXmax.Value = value; }
+            get { return (int)System.Math.Round(numericUpDownXMax.Value, MidpointRounding.AwayFromZero); }
+            set { numericUpDownXMax.Value = value; }
         }
 
         public int NumericUpDownNValue
         {
-            get { return (int)System.Math.Round(nudN.Value, MidpointRounding.AwayFromZero); }
+            get { return (int)System.Math.Round(numericUpDownN.Value, MidpointRounding.AwayFromZero); }
         }
 
         public Label LabelCurrentCurve
         {
-            get { return lAktuelleKurve; }
+            get { return labelCurrentCurve; }
         }
 
         public PictureBox PicBoxGraph
         {
-            get { return pbGraph; }
+            get { return picBoxGraph; }
         }
 
         public ComboBox ComboBoxP
         {
-            get { return cBoxP; }
+            get { return comboBoxP; }
         }
 
         public ComboBox ComboBoxQ
         {
-            get { return cBoxQ; }
+            get { return comboBoxQ; }
         }
 
         public ComboBox ComboBoxS
         {
-            get { return cBoxS; }
+            get { return comboBoxS; }
         }
 
         public bool EqualAspectRatioIsChecked
         {
-            get { return cbGleichesSeitenverhaeltnis.Checked; }
+            get { return checkBoxEqualAspectRatio.Checked; }
         }
 
         #endregion
@@ -85,17 +85,17 @@ namespace EllipticCurves.View
             this.controller = controller;
         }
 
-        private void pbGraph_MouseMove(object sender, MouseEventArgs e)
+        private void picBoxGraph_MouseMove(object sender, MouseEventArgs e)
         {
             controller.MouseMoveInCoordinateSystem(e.X, e.Y);
         }
 
-        private void btnKurveAendern_Click(object sender, EventArgs e)
+        private void btnConfigureCurve_Click(object sender, EventArgs e)
         {
             controller.ShowCurveParameterForm();
         }
 
-        private void pbGraph_MouseClick(object sender, MouseEventArgs e)
+        private void picBoxGraph_MouseClick(object sender, MouseEventArgs e)
         {
             controller.MouseClickInCoordinateSystem(e.Button);
         }
@@ -120,53 +120,51 @@ namespace EllipticCurves.View
             btnMultiply.Enabled = false;
         }
 
-        private void cBoxP_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxP_SelectedIndexChanged(object sender, EventArgs e)
         {
             controller.DrawSummand1();
-            if (cBoxP.SelectedIndex > -1 && cBoxQ.SelectedIndex > -1)
+            if (comboBoxP.SelectedIndex > -1 && comboBoxQ.SelectedIndex > -1)
                 EnableAddBtn();
         }
 
-        private void cBoxQ_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxQ_SelectedIndexChanged(object sender, EventArgs e)
         {
             controller.DrawSummand2();
-            if (cBoxP.SelectedIndex > -1 && cBoxQ.SelectedIndex > -1)
+            if (comboBoxP.SelectedIndex > -1 && comboBoxQ.SelectedIndex > -1)
                 EnableAddBtn();
         }
 
-        private void cbGleichesSeitenverhaeltnis_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxEqualAspectRatio_CheckedChanged(object sender, EventArgs e)
         {
-            // Kurve neuzeichnen
             controller.DrawCurve();
         }
 
-        private void pbGraph_SizeChanged(object sender, EventArgs e)
+        private void picBoxGraph_SizeChanged(object sender, EventArgs e)
         {
-            // Kurve neuzeichnen
             if (controller != null)
             {
-                // Die Überprüfung ob der Controller null ist, ist eigentlich unnötig (unter Windows)
-                // Da das Size Changed Event unter Mono aber schon beim Programmstart feuert, muss es 
-                // für die Linux Version an dieser Stelle geprüft werden
+                // The null check is not needed under Windows
+                // The SizeChanged event fires under mono already at program launch
+                // so we need to perform the check for the Linux version here
                 controller.DrawCurve();
             }
 
         }
 
-        private void nudXmax_ValueChanged(object sender, EventArgs e)
+        private void numericUpDownXmax_ValueChanged(object sender, EventArgs e)
         {
             controller.ChangeXmax();
         }
 
         public void SetLimitsForXmax(int lower, int upper)
         {
-            nudXmax.Minimum = lower;
-            nudXmax.Maximum = upper;
+            numericUpDownXMax.Minimum = lower;
+            numericUpDownXMax.Maximum = upper;
         }
 
-        public void EnableNuDXmax(bool enabled)
+        public void EnableNumericUpDownXmax(bool enabled)
         {
-            nudXmax.Enabled = enabled;
+            numericUpDownXMax.Enabled = enabled;
         }
 
         private void btnSaveGraph_Click(object sender, EventArgs e)
@@ -174,7 +172,7 @@ namespace EllipticCurves.View
             controller.SaveGraph();
         }
 
-        private void btnShowAdditionRechnung_Click(object sender, EventArgs e)
+        private void btnShowAdditionLog_Click(object sender, EventArgs e)
         {
             controller.ShowAdditionLog();
         }
@@ -184,9 +182,9 @@ namespace EllipticCurves.View
             controller.Multiply();
         }
 
-        private void cbS_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxS_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cBoxS.SelectedIndex > -1)
+            if (comboBoxS.SelectedIndex > -1)
             {
                 controller.DrawFactor();
                 btnMultiply.Enabled = true;
@@ -196,11 +194,10 @@ namespace EllipticCurves.View
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Kurve neuzeichnen
             controller.DrawCurve();
         }
 
-        private void btnShowMultiplikationRechnung_Click(object sender, EventArgs e)
+        private void btnShowMultiplikationLog_Click(object sender, EventArgs e)
         {
             controller.ShowMultiplicationLog();
         }

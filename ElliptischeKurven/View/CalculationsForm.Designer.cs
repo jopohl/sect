@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rTBRechnung = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxCalculations = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // rTBRechnung
+            // richTextBoxCalculations
             // 
-            this.rTBRechnung.BackColor = System.Drawing.Color.Black;
-            this.rTBRechnung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rTBRechnung.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rTBRechnung.ForeColor = System.Drawing.Color.White;
-            this.rTBRechnung.Location = new System.Drawing.Point(0, 0);
-            this.rTBRechnung.Name = "rTBRechnung";
-            this.rTBRechnung.ReadOnly = true;
-            this.rTBRechnung.Size = new System.Drawing.Size(530, 368);
-            this.rTBRechnung.TabIndex = 0;
-            this.rTBRechnung.Text = "";
+            this.richTextBoxCalculations.BackColor = System.Drawing.Color.Black;
+            this.richTextBoxCalculations.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxCalculations.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxCalculations.ForeColor = System.Drawing.Color.White;
+            this.richTextBoxCalculations.Location = new System.Drawing.Point(0, 0);
+            this.richTextBoxCalculations.Name = "richTextBoxCalculations";
+            this.richTextBoxCalculations.ReadOnly = true;
+            this.richTextBoxCalculations.Size = new System.Drawing.Size(530, 368);
+            this.richTextBoxCalculations.TabIndex = 0;
+            this.richTextBoxCalculations.Text = "";
             // 
-            // RechnungsForm
+            // CalculationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 368);
-            this.Controls.Add(this.rTBRechnung);
+            this.Controls.Add(this.richTextBoxCalculations);
             this.DoubleBuffered = true;
-            this.Name = "RechnungsForm";
-            this.Text = "Lösungsweg";
+            this.Name = "CalculationForm";
+            this.Text = "Calculation Log";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox rTBRechnung;
+        private System.Windows.Forms.RichTextBox richTextBoxCalculations;
     }
 }

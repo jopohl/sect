@@ -4,10 +4,10 @@ namespace EllipticCurves.View
 {
     public partial class CalculationForm : Form
     {
-        public CalculationForm(string rechnung)
+        public CalculationForm(string calculations)
         {
             InitializeComponent();
-            rTBRechnung.Text = rechnung;
+            richTextBoxCalculations.Text = calculations;
         }
     }
 }
