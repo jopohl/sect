@@ -76,9 +76,9 @@ namespace EllipticCurveTool.EC
             MultiplicationLog = "Curve: " + this;
             MultiplicationLog += "\n\nT = " + n + " * " + p;
             MultiplicationLog += "\n\nUsing Double-and-Add Algorithm...";
-            MultiplicationLog += "\nn = " + n + " = (" + n.GetDualNumber() + ")_bin";
+            MultiplicationLog += "\nn = " + n + " = (" + n.GetBinaryRepresentation() + ")_bin";
             ECPoint result = new ECPoint();
-            string nDual = n.GetDualNumber();
+            string nDual = n.GetBinaryRepresentation();
 
             MultiplicationLog += "\nInitializing T = " + result;
             MultiplicationLog += "\nGoing through the binary representation of n...";

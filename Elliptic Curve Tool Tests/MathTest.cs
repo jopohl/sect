@@ -43,5 +43,14 @@ namespace EllipticCurveToolTests
             Assert.AreEqual(2.MultInv(8), 0);  // no inverse
             Assert.AreEqual(2.MultInv(5), 3);
         }
+
+        [TestMethod]
+        public void TestGetBinaryRepresentation()
+        {
+            Assert.AreEqual(0.GetBinaryRepresentation(), "0");
+            Assert.AreEqual(1.GetBinaryRepresentation(), "1");
+            Assert.AreEqual(42.GetBinaryRepresentation(), "101010");
+            Assert.AreEqual((-42).GetBinaryRepresentation(), "101010");  // we care only about absolute value
+        }
     }
 }

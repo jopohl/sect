@@ -161,7 +161,7 @@ namespace EllipticCurveTool.EC
         /// </summary>
         /// <param name="number">The decimal number to be converted</param>
         /// <returns>Binary representation of <paramref name="number"/> as string</returns>
-        public static string GetDualNumber(this int number)
+        public static string GetBinaryRepresentation(this int number)
         {
             string result = String.Empty;
             number = Math.Abs(number);
