@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace EllipticCurveTests
 {
     [TestClass()]
-    public class ElliptischeKurveZTest
+    public class EllipticCurveZTest
     {
 
 
