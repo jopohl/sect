@@ -7,133 +7,103 @@ using EllipticCurves.EC;
 namespace EllipticCurves
 {
     /// <summary>
-    /// Ein CoordinateSystem zur Darstellung von elliptischen Kurven auf Z_n.
-    /// Der Ursprung des Koordinatensystems ist immer der ECPoint (0/0).
-    /// Die Schrittweiten können nur ganze Zahlen sein.
+    /// CoordinateSystem for elliptic curves
+    /// The origin is always the ECPoint (0/0).
+    /// Step sizes can only be integers.
     /// </summary>
     public class CoordinateSystem
     {
-        private Axis xAchse;
-        private Axis yAchse;
+        private Axis xAxis;
+        private Axis yAxis;
 
         /// <summary>
-        /// Das Graphics-Objekt, auf dem das KS gezeichnet wird
+        /// Graphics-Object, this coordinate system should be drawn upon
         /// </summary>
         private Graphics graphics;
+
         private readonly int xmin;
         private readonly int xmax;
         private readonly int ymin;
         private readonly int ymax;
 
         /// <summary>
-        /// Breite des KS in Pixeln
+        /// Width in pixels
         /// </summary>
-        private int breite;
+        private int width;
 
-        public int Breite
+        public int Width
         {
-            get { return breite + rand[0] + rand[1]; }
+            get { return width + border[0] + border[1]; }
             
         }
 
         /// <summary>
-        /// Höhe des KS in Pixeln
-        /// </summary>
-        private int hoehe;
+        /// Height in pixels
+        /// /// </summary>
+        private int height;
 
-        public int Hoehe
+        public int Height
         {
-            get { return hoehe + rand[2] + rand[3]; }
+            get { return height + border[2] + border[3]; }
 
         }
 
         ///<summary>
-        /// Der Rand um das Koordinatenystem in Pixeln.
-        /// Reihenfolge: 0. Rand links, 1. Rand rechts, 2. Rand oben, 3. Rand unten
+        /// Border around coordinate system in pixels
+        /// Order: 0. Border left, 1. Border right, 2. Border top, 3. Border bottom
         /// </summary>
-        private readonly int[] rand = { 60, 30, 30, 30 };
+        private readonly int[] border = { 60, 30, 30, 30 };
+
+        private readonly Color CURVE_COLOR = Color.Black;
+        private readonly Color POINT_COLOR = Color.Blue;
+        private readonly Color SELECTION_COLOR = Color.Orange;
 
         /// <summary>
-        /// Die Farbe, in der die Points gezeichnet werden sollen
+        /// Thickness (Radius) of a point in pixels
         /// </summary>
-        private readonly Color PUNKT_FARBE = Color.Blue;
-        /// <summary>
-        /// Die Farbe, die ein ECPoint annimmt, wenn er selektiert ist
-        /// </summary>
-        private readonly Color SELEKTION_FARBE = Color.Orange;
+        private const int POINT_THICKNESS = 6;
 
         /// <summary>
-        /// Gibt den Mindestabstand der Ticks auf x- und y-Achse in Pixeln an
+        /// Minimum distance between ticks in pixels
         /// </summary>
-        private const int MINDESTABSTAND_TICKS = 10;
-
-        public readonly Color KURVEN_FARBE = Color.Black;
-        /// <summary>
-        /// Dicke (Radius) der gezeichneten Points in Pixeln
-        /// </summary>
-        private const int PUNKT_DICKE = 6;
+        private const int MIN_TICK_DISTANCE = 10;
 
         /// <summary>
-        /// Das Bild, auf dem das CoordinateSystem und die darin enthaltene Kurve gezeichnet werden soll.
+        /// A picture, the coordinate system and the curve in it shall be drawn upon.
         /// </summary>
-        public Bitmap Bild { get; private set; }
+        public Bitmap Picture { get; private set; }
 
-        public CoordinateSystem(int xmin, int xmax, int ymin, int ymax, Bitmap bild)
+        public CoordinateSystem(int xmin, int xmax, int ymin, int ymax, Bitmap picture)
         {
             this.xmin = xmin;
             this.xmax = xmax;
             this.ymin = ymin;
             if (ymax == ymin)
-                ymax+=2; // stelle sicher, dass y-Achse nicht verschwindet
+                ymax+=2; // ensure, y-Axis does not disappear
             this.ymax = ymax;
-            this.Bild = bild;
-            graphics = Graphics.FromImage(Bild);
+            this.Picture = picture;
+            graphics = Graphics.FromImage(Picture);
             graphics.SmoothingMode = SmoothingMode.HighQuality;
             graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            // Weiße Grundfläche
-            graphics.FillRectangle(new SolidBrush(Color.White), 0, 0, Bild.Width, Bild.Height);
+
+            // White Background
+            graphics.FillRectangle(new SolidBrush(Color.White), 0, 0, Picture.Width, Picture.Height);
         }
 
-        public CoordinateSystem(CoordinateSystem old)
-        {
-            if (old == null)
-                return;
-            
-            this.xmin = old.xmin;
-            this.xmax = old.xmax;
-            this.ymin = old.ymin;
-            this.ymax = old.ymax;
-            this.Bild = old.Bild;
-            graphics = Graphics.FromImage(Bild);
-            graphics.SmoothingMode = SmoothingMode.HighQuality;
-            graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            // Weiße Grundfläche
-            graphics.FillRectangle(new SolidBrush(Color.White), 0, 0, Bild.Width, Bild.Height);
-        }
-
-        /// <summary>
-        /// Erzeugt ein neues CoordinateSystem mit xmin=0 und ymin=0
-        /// </summary>
-        /// <param name="xmax">Maximaler x-Wert in KS-Koordinaten</param>
-        /// <param name="ymax">Maximaler y-Wert in KS-Koordinaten</param>
         public CoordinateSystem(int xmax, int ymax, Bitmap bild) : this(0, xmax, 0, ymax, bild) { }
 
-        /// <summary>
-        /// Zeichnet das CoordinateSystem
-        /// </summary>
-        /// <param name="gleichesSeitenverhaeltnis">Gibt an ob x und y Achse in dem CoordinateSystem gleichlang sein sollen </param>
-        public void Draw(bool gleichesSeitenverhaeltnis)
+        public void Draw(bool equalAspectRatio)
         {
-            int dx = 0; // Abstand der Ticks auf der x-Achse in Pixeln
-            int sx = 0; // Schrittweite auf der x-Achse
-            breite = Bild.Width - (rand[0] + rand[1]);
-            hoehe = Bild.Height - (rand[2] + rand[3]);
+            int dx = 0; // Tick distance on x axis in pixels
+            int sx = 0; // Step size on x axis
+            width = Picture.Width - (border[0] + border[1]);
+            height = Picture.Height - (border[2] + border[3]);
 
-            double xBereich = xmax - xmin;
-            for (int i = 1; i < xBereich; i++)
+            double xRange = xmax - xmin;
+            for (int i = 1; i < xRange; i++)
             {
-                dx = (int)(i / xBereich * breite);
-                if (dx >= MINDESTABSTAND_TICKS)
+                dx = (int)(i / xRange * width);
+                if (dx >= MIN_TICK_DISTANCE)
                 {
                     sx = i;
                     break;
@@ -141,15 +111,15 @@ namespace EllipticCurves
             }
 
             if (dx == 0 || sx == 0)
-                throw new Exception("Fehler bei der Tick-Berechnung für x-Achse. Bild zu klein?");
+                throw new Exception("An error occurred during calculating the ticks for the x-axis. Is the picture too small?");
 
-            int dy = 0; // Abstand der Ticks auf der y-Achse in Pixeln
-            int sy = 0; // Schrittweite auf der y-Achse
-            double yBereich = ymax - ymin;
-            for (int i = 1; i < yBereich; i++)
+            int dy = 0; // Tick distance on y axis in pixels
+            int sy = 0; // Step size on y axis
+            double yRange = ymax - ymin;
+            for (int i = 1; i < yRange; i++)
             {
-                dy = (int)(i / yBereich * hoehe);
-                if (dy >= MINDESTABSTAND_TICKS)
+                dy = (int)(i / yRange * height);
+                if (dy >= MIN_TICK_DISTANCE)
                 {
                     sy = i;
                     break;
@@ -157,265 +127,241 @@ namespace EllipticCurves
             }
 
             if (dy == 0 || sy == 0)
-                throw new Exception("Fehler bei der Tick-Berechnung für y-Achse. Bild zu klein?");
+                throw new Exception("An error occurred during calculating the ticks for the y-axis. Is the picture too small?");
 
-            if (gleichesSeitenverhaeltnis)
+            if (equalAspectRatio)
             {
-                // Nimm den kleineren Tickabstand für beide Achsen
-                float ksProPixelX = sx/(float)dx;
-                float ksProPixelY = sy / (float)dy;
-                if (ksProPixelX < ksProPixelY)
+                // Take the smaller tick distance for both axes
+                float csPerPixelX = sx / (float)dx;
+                float csPerPixelY = sy / (float)dy;
+                if (csPerPixelX < csPerPixelY)
                 {
-                    // x-Tickabstand anpassen
                     dx = dy;
                     sx = sy;
-                    // Länge der x-Achse anpassen
-                    breite = (int)(dx * xBereich / sx);
+                    width = (int)(dx * xRange / sx);
                 }
 
-                if (ksProPixelX > ksProPixelY)
+                if (csPerPixelX > csPerPixelY)
                 {
-                    // y-Tickabstand anpassen
                     dy = dx;
                     sy = sx;
-                    // Länge der y-Achse anpassen
-                    hoehe = (int)(dy * yBereich / sy);
+                    height = (int)(dy * yRange / sy);
                 }
             }
 
-            int posxAchse = (int)(Bild.Height - rand[3] - (0 - ymin) / (double)sy * dy);
-            int posyAchse = (int)(rand[0] + (System.Math.Abs(0 - xmin) / (double)sx) * dx);
+            int posxAxis = (int)(Picture.Height - border[3] - (0 - ymin) / (double)sy * dy);
+            int posyAxis = (int)(border[0] + (Math.Abs(0 - xmin) / (double)sx) * dx);
 
-            xAchse = new Axis(new Point(rand[0], posxAchse),
-                                new Point(breite + rand[0] + (int)(0.8 * rand[1]), posxAchse),
-                                AxisType.x, dx, sx, xmin);
+            xAxis = new Axis(
+                new Point(border[0], posxAxis),
+                new Point(width + border[0] + (int)(0.8 * border[1]), posxAxis),
+                AxisType.x, dx, sx, xmin
+                );
 
-            yAchse = new Axis(new Point(posyAchse, Bild.Height - rand[3]),
-                                new Point(posyAchse, Bild.Height - (hoehe + (int)(0.8 * rand[2]) + rand[3])), AxisType.y, dy, sy, ymin);
+            yAxis = new Axis(
+                new Point(posyAxis, Picture.Height - border[3]),
+                new Point(posyAxis, Picture.Height - (height + (int)(0.8 * border[2]) + border[3])), 
+                AxisType.y, dy, sy, ymin
+                );
 
-            // Abstand zwischen beschrifteten Ticks
-            // Bei 1 werden alle Ticks der Achse beschriftet, bei 2 nur jeder zweite usw.
-            xAchse.DistanceBetweenLabeledTicks = Axis.CalcLabeledTicksDistance(xmax, sx, dx, graphics);
-            yAchse.DistanceBetweenLabeledTicks = Axis.CalcLabeledTicksDistance(ymax, sy, dy, graphics);
+            // Distance between labeled ticks
+            // 1 means every tick is labeled, 2 every second tick is labeled and so on
+            xAxis.DistanceBetweenLabeledTicks = Axis.CalcLabeledTicksDistance(xmax, sx, dx, graphics);
+            yAxis.DistanceBetweenLabeledTicks = Axis.CalcLabeledTicksDistance(ymax, sy, dy, graphics);
 
-            xAchse.Draw(graphics);
-            yAchse.Draw(graphics);
+            xAxis.Draw(graphics);
+            yAxis.Draw(graphics);
         }
 
         /// <summary>
-        /// Liefert zu einem Pixel-Koordinatenpaar die entsprechenden CoordinateSystem-Koordinaten
+        /// Transform pixel coordinates to CoordinateSystem-Coordinates
         /// </summary>
-        /// <param name="x">Die x-Koordinate des Pixelkoordinatenpaars</param>
-        /// <param name="y">Die y-Koordinate des Pixelkoordinatenpaars</param>
-        /// <returns>Die CoordinateSystem-Koordinaten zum Pixelkoordinatenpaar</returns>
-        public Tuple<double, double> GetKoordinaten(int x, int y)
+        /// <param name="x">The x-component of the pixel coordinate</param>
+        /// <param name="y">The y-component of the pixel coordinate</param>
+        /// <returns>The CoordinateSystem-Coordinates matching the pixel coordinates as a 2-tuple</returns>
+        public Tuple<double, double> GetCoordinates(int x, int y)
         {
-            double deltaX = (x - rand[0]) / (double)xAchse.DTicks * xAchse.StepsTicks;
-            double xKoord = xmin + deltaX;
+            double deltaX = (x - border[0]) / (double)xAxis.DTicks * xAxis.StepsTicks;
+            double xCoord = xmin + deltaX;
 
-            int diff = Bild.Height - (hoehe + rand[2] + rand[3]);
-            int hoeheBild = hoehe + diff + rand[2] + rand[3]; // Gesamthöhe des Bildes
+            int diff = Picture.Height - (height + border[2] + border[3]);
+            int heightPicture = height + diff + border[2] + border[3]; // Total height of picture
 
-            double deltaY = ((hoeheBild - y) - rand[3]) / (double)yAchse.DTicks * yAchse.StepsTicks;
-            double yKoord = ymin + deltaY;
+            double deltaY = ((heightPicture - y) - border[3]) / (double)yAxis.DTicks * yAxis.StepsTicks;
+            double yCoord = ymin + deltaY;
 
-            return new Tuple<double, double>(xKoord, yKoord);
+            return new Tuple<double, double>(xCoord, yCoord);
         }
 
         /// <summary>
-        /// Liefert zu einem Koordinatenpaar die entsprechenden Pixel-Koordinaten
+        /// Get the pixel coordinates from CoordinateSystem-Coordinates
         /// </summary>
-        /// <param name="x">Die x-Koordinate des Koordinatenpaars</param>
-        /// <param name="y">Die y-Koordinate des Koordinatenpaars</param>
-        /// <returns>Die Pixel-Koordinaten zum Koordinatenpaar</returns>
+        /// <param name="x">x-component of the CoordinateSystem-Coordinate</param>
+        /// <param name="y">y-component of the CoordinateSystem-Coordinate</param>
+        /// <returns>The pixel coordinates for the given CoordinateSystem-Coordinate as a 2-tuple</returns>
         public Tuple<double, double> GetPixelCoordinates(double x, double y)
         {
-            double xPixel = rand[0] + (x - xmin) / xAchse.StepsTicks * xAchse.DTicks;
-            double deltaY = rand[3] + (y - ymin) / yAchse.StepsTicks * yAchse.DTicks;
+            double xPixel = border[0] + (x - xmin) / xAxis.StepsTicks * xAxis.DTicks;
+            double deltaY = border[3] + (y - ymin) / yAxis.StepsTicks * yAxis.DTicks;
 
-            int diff = Bild.Height - (hoehe + rand[2] + rand[3]);
-            int hoeheBild = hoehe + diff + rand[2] + rand[3]; // Gesamthöhe des Bildes
-            double yPixel = hoeheBild - deltaY;
+            int diff = Picture.Height - (height + border[2] + border[3]);
+            int heightPicture = height + diff + border[2] + border[3]; // Total height of picture
+            double yPixel = heightPicture - deltaY;
 
             return new Tuple<double, double>(xPixel, yPixel);
         }
 
-        /// <summary>
-        /// Zeichnet einen ECPoint (CoordinateSystem-Koordinaten) in das CoordinateSystem.
-        /// </summary>
-        /// <param name="punkt">Der zu zeichnenede ECPoint mit CoordinateSystem-Koordinaten</param>
-        public void DrawECPoint(ECPoint punkt)
+        public void DrawECPoint(ECPoint ecPoint)
         {
-            DrawPunkt(punkt, PUNKT_FARBE);
+            DrawPoint(ecPoint, POINT_COLOR);
         }
 
-        public void DrawLine(Color farbe, ECPoint punkt1, ECPoint punkt2)
+        public void DrawLine(Color color, ECPoint point1, ECPoint point2, DashStyle dashStyle=DashStyle.Solid)
         {
-            Tuple<double, double> punkt1PixelKoord = GetPixelCoordinates(punkt1.X, punkt1.Y);
-            Tuple<double, double> punkt2PixelKoord = GetPixelCoordinates(punkt2.X, punkt2.Y);
-            float x1 = (float)punkt1PixelKoord.Item1;
-            float x2 = (float)punkt2PixelKoord.Item1;
-            float y1 = (float)punkt1PixelKoord.Item2;
-            float y2 = (float)punkt2PixelKoord.Item2;
+            Tuple<double, double> point1PixelCoord = GetPixelCoordinates(point1.X, point1.Y);
+            Tuple<double, double> point2PixelCoord = GetPixelCoordinates(point2.X, point2.Y);
+            float x1 = (float)point1PixelCoord.Item1;
+            float x2 = (float)point2PixelCoord.Item1;
+            float y1 = (float)point1PixelCoord.Item2;
+            float y2 = (float)point2PixelCoord.Item2;
 
-            using (Pen pen = new Pen(farbe))
-                graphics.DrawLine(pen, x1, y1, x2, y2);
-        }
-
-        public void DrawDashedLine(Color farbe, ECPoint punkt1, ECPoint punkt2)
-        {
-            Tuple<double, double> punkt1PixelKoord = GetPixelCoordinates(punkt1.X, punkt1.Y);
-            Tuple<double, double> punkt2PixelKoord = GetPixelCoordinates(punkt2.X, punkt2.Y);
-            float x1 = (float)punkt1PixelKoord.Item1;
-            float x2 = (float)punkt2PixelKoord.Item1;
-            float y1 = (float)punkt1PixelKoord.Item2;
-            float y2 = (float)punkt2PixelKoord.Item2;
-
-            using (Pen pen = new Pen(farbe))
+            using (Pen pen = new Pen(color))
             {
-                pen.DashStyle = DashStyle.Dash;
+                pen.DashStyle = dashStyle;
                 graphics.DrawLine(pen, x1, y1, x2, y2);
             }
         }
 
-        public void DrawCurve(Point[] kurvenpunkte)
+        public void DrawDashedLine(Color color, ECPoint point1, ECPoint point2)
         {
-                if (kurvenpunkte.Length>1)
-                    using (Pen pen = new Pen(KURVEN_FARBE))
-                        graphics.DrawCurve(pen, kurvenpunkte);
-                else if (kurvenpunkte.Length == 1)
-                        graphics.FillEllipse(Brushes.Black, kurvenpunkte[0].X-3, kurvenpunkte[0].Y-3, 6, 6); // Isolierter ECPoint
+            DrawLine(color, point1, point2, DashStyle.Dash);
         }
 
-        /// <summary>
-        /// Zeichnet einen ECPoint mit der Selektierungsfarbe, um darzustellen, dass er ausgewählt ist
-        /// </summary>
-        /// <param name="punkt">Der zu selektierende ECPoint</param>
-        public void SetSelection(ECPoint punkt)
+        public void DrawCurve(Point[] curvePoints)
         {
-            DrawPunkt(punkt, SELEKTION_FARBE);
+                if (curvePoints.Length > 1)
+                    using (Pen pen = new Pen(CURVE_COLOR))
+                        graphics.DrawCurve(pen, curvePoints);
+                else if (curvePoints.Length == 1)
+                        graphics.FillEllipse(Brushes.Black, curvePoints[0].X-3, curvePoints[0].Y-3, 6, 6); // Isolated ECPoint
         }
 
-        public void ClearSelection(ECPoint punkt)
+        public void SetSelection(ECPoint point)
         {
-            DrawPunkt(punkt, PUNKT_FARBE);
+            DrawPoint(point, SELECTION_COLOR);
         }
 
-        public void SetSummand1(ECPoint punkt)
+        public void ClearSelection(ECPoint point)
         {
-            FillAndLabelPoint(punkt, Color.Red, "P");
+            DrawPoint(point, POINT_COLOR);
         }
 
-        public void SetSummand2(ECPoint punkt)
+        public void SetSummand1(ECPoint point)
         {
-            FillAndLabelPoint(punkt, Color.Red, "Q");
+            FillAndLabelPoint(point, Color.Red, "P");
         }
 
-        public void SetFactor(ECPoint punkt)
+        public void SetSummand2(ECPoint point)
         {
-            FillAndLabelPoint(punkt, Color.Red, "S");
+            FillAndLabelPoint(point, Color.Red, "Q");
         }
 
-        public void SetDoubling(ECPoint punkt)
+        public void SetFactor(ECPoint point)
         {
-            FillAndLabelPoint(punkt, Color.Red, "P=Q");
+            FillAndLabelPoint(point, Color.Red, "S");
         }
 
-        public void SetAdditionResult(ECPoint punkt)
+        public void SetDoubling(ECPoint point)
         {
-            FillAndLabelPoint(punkt, Color.Green, "R");
+            FillAndLabelPoint(point, Color.Red, "P=Q");
         }
 
-        public void SetMultiplicationResult(int n, ECPoint punkt)
+        public void SetAdditionResult(ECPoint point)
         {
-            FillAndLabelPoint(punkt, Color.Green, n + "S");
+            FillAndLabelPoint(point, Color.Green, "R");
         }
 
-        public void SetMinusResult(ECPoint punkt)
+        public void SetMultiplicationResult(int n, ECPoint point)
         {
-            FillAndLabelPoint(punkt, Color.RoyalBlue, "-R");
+            FillAndLabelPoint(point, Color.Green, n + "S");
         }
 
-        /// <summary>
-        /// Füllt einen ECPoint mit der angegebenen Farbe und beschriftet ihn mit der angegebenen Beschriftung.
-        /// Wenn der ECPoint oberhalb oder auf der y-Achse liegt, wird die Beschriftung oberhalb des Punktes, ansonsten
-        /// unterhalb des Punktes platziert
-        /// </summary>
-        /// <param name="punkt"></param>
-        /// <param name="farbe"></param>
-        /// <param name="label"></param>
-        private void FillAndLabelPoint(ECPoint punkt, Color farbe, string label)
+        public void SetMinusResult(ECPoint point)
         {
-            if (punkt == null || punkt.IsInfinity)
+            FillAndLabelPoint(point, Color.RoyalBlue, "-R");
+        }
+
+        private void FillAndLabelPoint(ECPoint point, Color color, string label)
+        {
+            if (point == null || point.IsInfinity)
                 return;
 
-            Tuple<double, double> pixelKoord = this.GetPixelCoordinates(punkt.X, punkt.Y);
+            Tuple<double, double> pixelCoord = this.GetPixelCoordinates(point.X, point.Y);
 
-            using (Brush brush = new SolidBrush(farbe))
+            using (Brush brush = new SolidBrush(color))
             {
-                float x = (float)pixelKoord.Item1 - PUNKT_DICKE / 2;
-                float y = (float)pixelKoord.Item2 - PUNKT_DICKE / 2;
-                graphics.FillEllipse(brush, x, y, PUNKT_DICKE, PUNKT_DICKE);
+                float x = (float)pixelCoord.Item1 - POINT_THICKNESS / 2;
+                float y = (float)pixelCoord.Item2 - POINT_THICKNESS / 2;
+                graphics.FillEllipse(brush, x, y, POINT_THICKNESS, POINT_THICKNESS);
 
                 Font font = new Font(FontFamily.GenericSansSerif, 12);
-                SizeF groesseBeschriftung = graphics.MeasureString(label, font);
+                SizeF captionSize = graphics.MeasureString(label, font);
 
-                float richtung = 1; // Beschriftung oberhalb anbringen
-                if (punkt.Y < 0)
-                    richtung = -0.5F; // Beschriftung unterhalb anbringen
+                float direction = 1; // Place label above
+                if (point.Y < 0)
+                    direction = -0.5F; // Place label below
 
-                graphics.DrawString(label, font, new SolidBrush(Color.Black), x - groesseBeschriftung.Width / 2, y - richtung * groesseBeschriftung.Height);
+                graphics.DrawString(label, font, new SolidBrush(Color.Black), x - captionSize.Width / 2, y - direction * captionSize.Height);
             }
         }
 
-        private void DrawPunkt(ECPoint punkt, Color farbe)
+        private void DrawPoint(ECPoint point, Color color)
         {
-            if (punkt == null || punkt.IsInfinity)
+            if (point == null || point.IsInfinity)
                 return;
 
-            Tuple<double, double> pixelKoord = this.GetPixelCoordinates(punkt.X, punkt.Y);
+            Tuple<double, double> pixelCoord = this.GetPixelCoordinates(point.X, point.Y);
 
-            using (Pen pen = new Pen(farbe))
+            using (Pen pen = new Pen(color))
             {
-                float x = (float)pixelKoord.Item1 - PUNKT_DICKE / 2;
-                float y = (float)pixelKoord.Item2 - PUNKT_DICKE / 2;
-                graphics.DrawEllipse(pen, x, y, PUNKT_DICKE, PUNKT_DICKE);
+                float x = (float)pixelCoord.Item1 - POINT_THICKNESS / 2;
+                float y = (float)pixelCoord.Item2 - POINT_THICKNESS / 2;
+                graphics.DrawEllipse(pen, x, y, POINT_THICKNESS, POINT_THICKNESS);
             }
         }
 
         /// <summary>
-        /// Diese Methode ob durch die übergebenen Pixelkoordinaten (aktuelle Position des Mauszeigers) ein ECPoint
-        /// des Koordinatensystems selektiert ist. Ist ein ECPoint selektiert wird dieser ECPoint zurückgeliefert.
+        /// Find currently selected elliptic curve point (selected by mouse hovering)
         /// </summary>
-        /// <param name="pX">Die x-Koordinate der aktuellen Mauszeigerposition</param>
-        /// <param name="pY">Die y-Koordinate der aktuellen Mauszeigerposition</param>
-        /// <param name="punkte">Die Points der elliptischen Kurve, die auf Selektion geprüft werden sollen</param>
-        /// <returns>Den selektierten ECPoint oder <c>null</c>, wenn durch die Pixelkoordinaten kein ECPoint aus der übergebenen Punktliste selektiert ist.</returns>
-        public ECPoint FindSelectedPoint(int pX, int pY, List<ECPoint> punkte)
+        /// <param name="pX">x-coordinate of current mouse position in pixels</param>
+        /// <param name="pY">y-coordinate of current mouse position in pixels</param>
+        /// <param name="ecPoints">Points of the elliptic curve that shall be checked whether selected</param>
+        /// <returns>The selected ECPoint or <c>null</c>, if no ECPoint is selected by mouse.</returns>
+        public ECPoint FindSelectedPoint(int pX, int pY, List<ECPoint> ecPoints)
         {
-            Tuple<double, double> ksKoordinaten = GetKoordinaten(pX, pY);
+            Tuple<double, double> csCoordinates = GetCoordinates(pX, pY);
 
-            // Finde dichtesten ECPoint zu ksKoordinaten
+            // Find closest ECPoint to csCoordinates
             double minDist = double.MaxValue;
             ECPoint result = new ECPoint(0, 0);
-            foreach (ECPoint punkt in punkte)
+            foreach (ECPoint ecPoint in ecPoints)
             {
-                double xdiff = (punkt.X - ksKoordinaten.Item1);
-                double ydiff = (punkt.Y - ksKoordinaten.Item2);
-                double dist = xdiff * xdiff + ydiff * ydiff; // Das ist eig. das Quadrat des Abstands, reicht aber für Vergleich
+                double xdiff = (ecPoint.X - csCoordinates.Item1);
+                double ydiff = (ecPoint.Y - csCoordinates.Item2);
+                double dist = xdiff * xdiff + ydiff * ydiff; // This is actually the squared distance but it suffices for comparison
                 if (dist < minDist)
                 {
-                    result = punkt;
+                    result = ecPoint;
                     minDist = dist;
                 }
             }
 
-            // Pixelbereich des dichtesten Punktes festlegen
-            Tuple<double, double> pixelKoordResult = GetPixelCoordinates(result.X, result.Y);
-            double xMin = pixelKoordResult.Item1 - PUNKT_DICKE / 2;
-            double xMax = pixelKoordResult.Item1 + PUNKT_DICKE / 2;
-            double yMin = pixelKoordResult.Item2 - PUNKT_DICKE / 2;
-            double yMax = pixelKoordResult.Item2 + PUNKT_DICKE / 2;
+            // Set pixel range of the closest ECPoint
+            Tuple<double, double> pixelCoordResult = GetPixelCoordinates(result.X, result.Y);
+            double xMin = pixelCoordResult.Item1 - POINT_THICKNESS / 2;
+            double xMax = pixelCoordResult.Item1 + POINT_THICKNESS / 2;
+            double yMin = pixelCoordResult.Item2 - POINT_THICKNESS / 2;
+            double yMax = pixelCoordResult.Item2 + POINT_THICKNESS / 2;
 
             if (pX > xMin && pX < xMax && pY > yMin && pY < yMax)
                 return result;

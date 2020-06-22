@@ -157,7 +157,6 @@ namespace EllipticCurves.Controller
                 return;
             }
 
-            CoordinateSystem old = new CoordinateSystem(coordinateSystem);
             coordinateSystem = new CoordinateSystem(ellipticCurve.Xmin, ellipticCurve.Xmax, ellipticCurve.Ymin, ellipticCurve.Ymax, image);
 
             coordinateSystem.Draw(Form.EqualAspectRatioIsChecked);
@@ -327,7 +326,7 @@ namespace EllipticCurves.Controller
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Bitmap bmp = new Bitmap(Form.PicBoxGraph.Image);
-                Bitmap croppedBmp = bmp.Clone(new Rectangle(0, 0, coordinateSystem.Breite, coordinateSystem.Hoehe),
+                Bitmap croppedBmp = bmp.Clone(new Rectangle(0, 0, coordinateSystem.Width, coordinateSystem.Height),
                                               bmp.PixelFormat);
                 croppedBmp.Save(saveFileDialog.FileName);
             }
