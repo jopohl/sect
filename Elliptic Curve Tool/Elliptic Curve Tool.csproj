@@ -80,9 +80,6 @@
     <Compile Include="Axis.cs" />
     <Compile Include="EC\EllipticCurve.cs" />
     <Compile Include="EC\EllipticCurveR.cs" />
-    <Compile Include="View\DrawingPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Controller\MainController.cs" />
     <Compile Include="View\Mainform.cs">
       <SubType>Form</SubType>
