@@ -8,7 +8,7 @@
     <ProjectGuid>{0E774046-9E15-4774-8417-E244C388E6C0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EllipticCurves</RootNamespace>
+    <RootNamespace>EllipticCurveTool</RootNamespace>
     <AssemblyName>Simple Elliptic Curve Tool</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>

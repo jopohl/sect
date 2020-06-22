@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
-[assembly: AssemblyTitle("EllipticCurveTool")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Simple Elliptic Curve Tool")]
+[assembly: AssemblyDescription("A simple tool for learning and teaching elliptic curves")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EllipticCurveTool")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCompany("Johannes Pohl")]
+[assembly: AssemblyProduct("Simple Elliptic Curve Tool")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
