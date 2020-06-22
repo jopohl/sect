@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EllipticCurves.EC
+namespace EllipticCurveTool.EC
 {
     public static class MathExtensions
     {

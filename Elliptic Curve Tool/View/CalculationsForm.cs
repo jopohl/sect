@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace EllipticCurves.View
+namespace EllipticCurveTool.View
 {
     public partial class CalculationForm : Form
     {

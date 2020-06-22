@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
-using EllipticCurves.EC;
-using EllipticCurves.View;
+using EllipticCurveTool.EC;
+using EllipticCurveTool.View;
 
-namespace EllipticCurves.Controller
+namespace EllipticCurveTool.Controller
 {
     public class CurveParameterController
     {

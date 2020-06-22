@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
-using EllipticCurves.Controller;
+using EllipticCurveTool.Controller;
 
-namespace EllipticCurves.View
+namespace EllipticCurveTool.View
 {
     /// <summary>
     /// Form to configure parameters a,b and p of the elliptic curve

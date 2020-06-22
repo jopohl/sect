@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace EllipticCurves.EC
+namespace EllipticCurveTool.EC
 {
     /// <summary>
     /// An elliptic curve y² = x³ + a*x + b over the real numbers R

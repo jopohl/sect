@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 
-namespace EllipticCurves.EC
+namespace EllipticCurveTool.EC
 {
     /// <summary>
     /// Abstract base class for elliptic curves over R and Z_p

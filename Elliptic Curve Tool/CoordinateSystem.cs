@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using EllipticCurves.EC;
+using EllipticCurveTool.EC;
 
-namespace EllipticCurves
+namespace EllipticCurveTool
 {
     /// <summary>
     /// CoordinateSystem for elliptic curves

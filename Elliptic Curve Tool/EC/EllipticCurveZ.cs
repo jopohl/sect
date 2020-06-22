@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EllipticCurves.EC
+namespace EllipticCurveTool.EC
 {
     /// <summary>
     /// An elliptic curve y² = x³ + a*x + b mod p over the ring Z_p

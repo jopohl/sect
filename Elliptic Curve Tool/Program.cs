@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using EllipticCurves.Controller;
+using EllipticCurveTool.Controller;
 
-namespace EllipticCurves
+namespace EllipticCurveTool
 {
     static class Program
     {

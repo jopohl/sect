@@ -1,4 +1,4 @@
-﻿namespace EllipticCurves.View
+﻿namespace EllipticCurveTool.View
 {
     partial class CurveParameterForm
     {

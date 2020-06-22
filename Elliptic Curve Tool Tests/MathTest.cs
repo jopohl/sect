@@ -1,8 +1,8 @@
 ﻿using System;
-using EllipticCurves.EC;
+using EllipticCurveTool.EC;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace EllipticCurveTests
+namespace EllipticCurveToolTests
 {
     [TestClass]
     public class MathTest

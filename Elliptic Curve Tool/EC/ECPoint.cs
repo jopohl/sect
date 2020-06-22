@@ -1,4 +1,4 @@
-﻿namespace EllipticCurves.EC
+﻿namespace EllipticCurveTool.EC
 {
     /// <summary>
     /// Point on an Elliptic Curve
