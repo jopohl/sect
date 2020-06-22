@@ -58,7 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ElliptischeKurven\Elliptic Curve Tool.csproj">
+    <ProjectReference Include="..\Elliptic Curve Tool\Elliptic Curve Tool.csproj">
       <Project>{0E774046-9E15-4774-8417-E244C388E6C0}</Project>
       <Name>Elliptic Curve Tool</Name>
     </ProjectReference>

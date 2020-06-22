@@ -8,8 +8,8 @@
     <ProjectGuid>{0E774046-9E15-4774-8417-E244C388E6C0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ElliptischeKurven</RootNamespace>
-    <AssemblyName>ElliptischeKurven</AssemblyName>
+    <RootNamespace>EllipticCurves</RootNamespace>
+    <AssemblyName>Simple Elliptic Curve Tool</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -123,6 +123,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\CalculationsForm.resx">
       <DependentUpon>CalculationsForm.cs</DependentUpon>
