@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElliptischeKurven", "ElliptischeKurven\ElliptischeKurven.csproj", "{0E774046-9E15-4774-8417-E244C388E6C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElliptischeKurvenTests", "ElliptischeKurvenTests\ElliptischeKurvenTests.csproj", "{0AB545DA-2F44-48F2-AC51-94CBA954637E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F0BFA4D-14A2-4137-8B30-3C54F6C3448E}"
+	ProjectSection(SolutionItems) = preProject
+		ElliptischeKurven.vsmdi = ElliptischeKurven.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ElliptischeKurven.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Debug|Any CPU.Build.0 = Debug|x86
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Debug|x86.ActiveCfg = Debug|x86
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Debug|x86.Build.0 = Debug|x86
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Release|Mixed Platforms.Build.0 = Release|x86
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Release|x86.ActiveCfg = Release|x86
+		{0E774046-9E15-4774-8417-E244C388E6C0}.Release|x86.Build.0 = Release|x86
+		{0AB545DA-2F44-48F2-AC51-94CBA954637E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AB545DA-2F44-48F2-AC51-94CBA954637E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AB545DA-2F44-48F2-AC51-94CBA954637E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0AB545DA-2F44-48F2-AC51-94CBA954637E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0AB545DA-2F44-48F2-AC51-94CBA954637E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0AB545DA-2F44-48F2-AC51-94CBA954637E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AB545DA-2F44-48F2-AC51-94CBA954637E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AB545DA-2F44-48F2-AC51-94CBA954637E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0AB545DA-2F44-48F2-AC51-94CBA954637E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0AB545DA-2F44-48F2-AC51-94CBA954637E}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
