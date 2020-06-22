@@ -11,9 +11,6 @@ namespace EllipticCurveTool.View
         private CurveParameterController controller;
 
         #region Properties
-        /// <summary>
-        /// Textbox zum Festlegen von Parameter a der elliptischen Kurve
-        /// </summary>
         public TextBox TextBoxParameterA
         {
             get { return textBoxParameterA; }
@@ -24,17 +21,11 @@ namespace EllipticCurveTool.View
             get { return checkBoxRealCurve; }
         }
 
-        /// <summary>
-        /// Textbox zum Festlegen von Parameter b der elliptischen Kurve
-        /// </summary>
         public TextBox TextBoxParameterB
         {
             get { return textBoxParameterB; }
         }
 
-        /// <summary>
-        /// Textbox zum Festlegen von Parameter p der elliptischen Kurve
-        /// </summary>
         public TextBox TextBoxParameterP
         {
             get { return textBoxParameterP; }
@@ -45,9 +36,6 @@ namespace EllipticCurveTool.View
             get { return labelECFormula; }
         }
 
-        /// <summary>
-        /// Der ErrorProvider dieses Forms zum Verwalten von fehlerhaften Nutzereingaben.
-        /// </summary>
         public ErrorProvider ErrorProvider
         {
             get { return errorProvider; }
