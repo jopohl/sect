@@ -1,9 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElliptischeKurven", "ElliptischeKurven\ElliptischeKurven.csproj", "{0E774046-9E15-4774-8417-E244C388E6C0}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elliptic Curve Tool", "ElliptischeKurven\Elliptic Curve Tool.csproj", "{0E774046-9E15-4774-8417-E244C388E6C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElliptischeKurvenTests", "ElliptischeKurvenTests\ElliptischeKurvenTests.csproj", "{0AB545DA-2F44-48F2-AC51-94CBA954637E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elliptic Curve Tool Tests", "ElliptischeKurvenTests\Elliptic Curve Tool Tests.csproj", "{0AB545DA-2F44-48F2-AC51-94CBA954637E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F0BFA4D-14A2-4137-8B30-3C54F6C3448E}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,9 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = ElliptischeKurven.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -50,5 +49,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAD0EF0D-057D-4CB3-9A34-6859CC534213}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = ElliptischeKurven.vsmdi
 	EndGlobalSection
 EndGlobal

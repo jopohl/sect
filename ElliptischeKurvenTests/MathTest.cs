@@ -2,7 +2,7 @@
 using EllipticCurves.EC;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ElliptischeKurvenTests
+namespace EllipticCurveTests
 {
     [TestClass]
     public class MathTest
