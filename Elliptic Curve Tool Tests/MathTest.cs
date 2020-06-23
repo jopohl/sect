@@ -1,20 +1,19 @@
 ﻿using System;
 using EllipticCurveTool.EC;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace EllipticCurveToolTests
 {
-    [TestClass]
     public class MathTest
     {
-        [TestMethod]
+        [Test]
         public void TestCubicSolve()
         {
             double result1 = MathExtensions.SolveReducedCubicEquation(2, 2)[0];
             Assert.AreEqual(Math.Round(result1, 2), -0.77);
         }
 
-        [TestMethod]
+        [Test]
         public void TestModulo()
         {
             Assert.AreEqual(5.Mod(3), 2);
@@ -22,7 +21,7 @@ namespace EllipticCurveToolTests
             Assert.AreEqual(5.Mod(-3), 2);
         }
 
-        [TestMethod]
+        [Test]
         public void TestIsPrime()
         {
             Assert.IsTrue(5.IsPrime());
@@ -36,7 +35,7 @@ namespace EllipticCurveToolTests
             Assert.IsFalse(21.IsPrime());
         }
 
-        [TestMethod]
+        [Test]
         public void TestMultInv()
         {
             Assert.AreEqual(5.MultInv(7), 3);
@@ -44,7 +43,7 @@ namespace EllipticCurveToolTests
             Assert.AreEqual(2.MultInv(5), 3);
         }
 
-        [TestMethod]
+        [Test]
         public void TestGetBinaryRepresentation()
         {
             Assert.AreEqual(0.GetBinaryRepresentation(), "0");
