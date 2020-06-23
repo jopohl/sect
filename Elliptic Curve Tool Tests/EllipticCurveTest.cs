@@ -1,28 +1,12 @@
-﻿using EllipticCurveTool.EC;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
+using EllipticCurveTool.EC;
 
 namespace EllipticCurveToolTests
 {
-    [TestClass()]
     public class EllipticCurveZTest
     {
 
-
-        private TestContext testContextInstance;
-
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
-        [TestMethod()]
+        [Test]
         public void AddMultiplyTest()
         {
             int a = 3;
