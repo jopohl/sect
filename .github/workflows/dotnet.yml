@@ -1,4 +1,4 @@
-name: .NET
+name: SECT
 
 on:
   push:
@@ -13,20 +13,45 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
+
+    - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
+        
     - name: Setup NuGet.exe for use with actions
       uses: NuGet/setup-nuget@v1.0.2
+      
     - name: Install dependencies
       run: nuget restore
+      
     - name: Build
       run: dotnet build  --configuration Release --no-restore
-    - name: Test
+      
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: dist
+        path: EllipticCurveTool\bin\Release\Simple Elliptic Curve Tool.exe
+  
+    - name: Run NUnit Tests
       run: packages/NUnit.ConsoleRunner.3.11.1/tools/nunit3-console.exe --x86 EllipticCurveToolTests/bin/Release/EllipticCurveToolTests.dll
+
     - uses: MirrorNG/nunit-reporter@v1.0.9
       if: always()
       with:
         path: TestResult.xml
         access-token: ${{ secrets.GITHUB_TOKEN }}
+  
+  
+  testrun:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: dist
+          
+      - shell: bash
+        run: mono dist/Simple Elliptic Curve Tool.exe
