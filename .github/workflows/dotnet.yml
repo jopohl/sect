@@ -22,6 +22,6 @@ jobs:
     - name: Install dependencies
       run: nuget restore
     - name: Build
-      run: dotnet build  --configuration Release --no-restore /p:Platform:"x64"
+      run: dotnet build  --configuration Release --no-restore
     - name: Test
-      run: packages/NUnit.ConsoleRunner.3.11.1/tools/nunit3-console.exe EllipticCurveToolTests/bin/Release/EllipticCurveToolTests.dll
+      run: packages/NUnit.ConsoleRunner.3.11.1/tools/nunit3-console.exe --x86 EllipticCurveToolTests/bin/Release/EllipticCurveToolTests.dll
