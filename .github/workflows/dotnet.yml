@@ -32,7 +32,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: dist
-        path: EllipticCurveTool\bin\Release\Simple Elliptic Curve Tool.exe
+        path: EllipticCurveTool\bin\Release\Simple_Elliptic_Curve_Tool.exe
   
     - name: Run NUnit Tests
       run: packages/NUnit.ConsoleRunner.3.11.1/tools/nunit3-console.exe --x86 EllipticCurveToolTests/bin/Release/EllipticCurveToolTests.dll
@@ -45,12 +45,26 @@ jobs:
   
   
   testrun:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     needs: build
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v1
         with:
           name: dist
-      - shell: bash
-        run: xvfb-run --auto-servernum mono "dist/Simple Elliptic Curve Tool.exe" autoclose
+      - name: Test whether app runs
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+               xvfb-run --auto-servernum mono dist/Simple_Elliptic_Curve_Tool.exe autoclose
+          elif [ "$RUNNER_OS" == "Windows" ]; then
+               dist/Simple_Elliptic_Curve_Tool.exe autoclose
+          elif [ "$RUNNER_OS" == "macOS" ]; then
+               mono dist/Simple_Elliptic_Curve_Tool.exe autoclose
+          else
+               echo "$RUNNER_OS not supported"
+               exit 1
+          fi
+        shell: bash
