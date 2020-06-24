@@ -26,7 +26,7 @@ jobs:
     - name: Test
       run: packages/NUnit.ConsoleRunner.3.11.1/tools/nunit3-console.exe --x86 EllipticCurveToolTests/bin/Release/EllipticCurveToolTests.dll
     - uses: MirrorNG/nunit-reporter@v1.0.9
-        if: always()
-        with:
-          path: Tests/*.xml
-          access-token: ${{ secrets.GITHUB_TOKEN }}
+      if: always()
+      with:
+        path: Tests/*.xml
+        access-token: ${{ secrets.GITHUB_TOKEN }}
