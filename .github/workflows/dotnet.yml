@@ -54,4 +54,4 @@ jobs:
           name: dist
           
       - shell: bash
-        run: mono dist/Simple Elliptic Curve Tool.exe
+        run: mono "dist/Simple Elliptic Curve Tool.exe"
