@@ -62,7 +62,7 @@ jobs:
           elif [ "$RUNNER_OS" == "Windows" ]; then
                dist/Simple_Elliptic_Curve_Tool.exe autoclose
           elif [ "$RUNNER_OS" == "macOS" ]; then
-               mono32 dist/Simple_Elliptic_Curve_Tool.exe autoclose
+               mono --arch=32 dist/Simple_Elliptic_Curve_Tool.exe autoclose
           else
                echo "$RUNNER_OS not supported"
                exit 1
