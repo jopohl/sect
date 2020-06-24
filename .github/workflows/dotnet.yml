@@ -52,6 +52,5 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: dist
-      - run: sudo apt-get install xvfb
       - shell: bash
-        run: xvfb-run --auto-servernum mono "dist/Simple Elliptic Curve Tool.exe"
+        run: xvfb-run --auto-servernum mono "dist/Simple Elliptic Curve Tool.exe" autoclose
