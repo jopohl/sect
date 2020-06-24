@@ -24,4 +24,4 @@ jobs:
     - name: Build
       run: dotnet build  --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: packages/NUnit.ConsoleRunner.3.11.1/tools/nunit3-console.exe EllipticCurveToolTests/bin/Release/EllipticCurveToolTests.dll
