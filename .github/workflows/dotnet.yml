@@ -1,0 +1,68 @@
+name: SECT
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.101
+        
+    - name: Setup NuGet.exe for use with actions
+      uses: NuGet/setup-nuget@v1.0.2
+      
+    - name: Install dependencies
+      run: nuget restore
+      
+    - name: Build
+      run: dotnet build  --configuration Release --no-restore
+      
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: dist
+        path: EllipticCurveTool\bin\Release\Simple_Elliptic_Curve_Tool.exe
+  
+    - name: Run NUnit Tests
+      run: packages/NUnit.ConsoleRunner.3.11.1/tools/nunit3-console.exe --x86 EllipticCurveToolTests/bin/Release/EllipticCurveToolTests.dll
+
+    - uses: MirrorNG/nunit-reporter@v1.0.9
+      if: always()
+      with:
+        path: TestResult.xml
+        access-token: ${{ secrets.GITHUB_TOKEN }}
+  
+  
+  testrun:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: dist
+      - name: Test whether app runs
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+               xvfb-run --auto-servernum mono dist/Simple_Elliptic_Curve_Tool.exe autoclose
+          elif [ "$RUNNER_OS" == "Windows" ]; then
+               dist/Simple_Elliptic_Curve_Tool.exe autoclose
+          else
+               echo "$RUNNER_OS not supported"
+               exit 1
+          fi
+        shell: bash

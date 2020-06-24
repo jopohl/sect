@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EllipticCurveTool</RootNamespace>
-    <AssemblyName>Simple Elliptic Curve Tool</AssemblyName>
+    <AssemblyName>Simple_Elliptic_Curve_Tool</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
