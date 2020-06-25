@@ -173,7 +173,6 @@
             this.comboBoxQ.Name = "comboBoxQ";
             this.comboBoxQ.Size = new System.Drawing.Size(121, 21);
             this.comboBoxQ.TabIndex = 14;
-            this.toolTip.SetToolTip(this.comboBoxQ, "Auswahl durch Rechtsklick im CoordinateSystem oder aus Liste.");
             this.comboBoxQ.SelectedIndexChanged += new System.EventHandler(this.comboBoxQ_SelectedIndexChanged);
             // 
             // labelQ
@@ -194,7 +193,6 @@
             this.comboBoxP.Name = "comboBoxP";
             this.comboBoxP.Size = new System.Drawing.Size(121, 21);
             this.comboBoxP.TabIndex = 11;
-            this.toolTip.SetToolTip(this.comboBoxP, "Auswahl durch Linksklick im CoordinateSystem oder aus Liste.\r\n");
             this.comboBoxP.SelectedIndexChanged += new System.EventHandler(this.comboBoxP_SelectedIndexChanged);
             // 
             // labelP
@@ -215,7 +213,6 @@
             this.comboBoxS.Name = "comboBoxS";
             this.comboBoxS.Size = new System.Drawing.Size(121, 21);
             this.comboBoxS.TabIndex = 14;
-            this.toolTip.SetToolTip(this.comboBoxS, "Auswahl durch Linksklick im CoordinateSystem oder aus Liste.");
             this.comboBoxS.SelectedIndexChanged += new System.EventHandler(this.comboBoxS_SelectedIndexChanged);
             // 
             // flpAddition
