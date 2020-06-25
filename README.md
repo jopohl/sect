@@ -4,7 +4,7 @@ Simple Elliptic Curve Tool
 This tool runs on Windows and Linux without installation. Download the latest version from the [releases page](https://github.com/jopohl/sect/releases) and follow the instructions for your OS below.
 
 ##### Windows
-Simply run ```Simple_Elliptic_Curve_Tool.exe```. 
+Install [.NET Framework 4.0](https://dotnet.microsoft.com/download/dotnet-framework/net40) & run ```Simple_Elliptic_Curve_Tool.exe```. 
 
 ##### Linux
 Install Mono & run ```mono Simple_Elliptic_Curve_Tool.exe```. 
