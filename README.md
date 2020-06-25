@@ -14,8 +14,12 @@ Unfortunately, this application does __not run on macOS 10.15 Catalina and above
 
 If you use a macOS version <10.15, you may be lucky by installing Mono & running ```mono --arch=32 Simple_Elliptic_Curve_Tool.exe```. 
 
-# Screenshots
+## Screenshots
+#### Point addition for elliptic curve over Z_p
+![Point addition Z_p](/screenshots/add_z_p.png?raw=true)
 
-![Point addition Z_p](/screenshots/add_z_p.png?raw=true "Point addition for elliptic curve over Z_p")
-![Point multiplication Z_p](/screenshots/mult_z_p_log.png?raw=true "Point multiplication for a curve over Z_p with log")
-![Point addition R](/screenshots/add_r.png?raw=true "Point addition for elliptic curve over R")
+#### Point addition for elliptic curve over R
+![Point addition R](/screenshots/add_r.png?raw=true)
+
+#### Point multiplication for a curve over Z_p with log
+![Point multiplication Z_p](/screenshots/mult_z_p_log.png?raw=true)
