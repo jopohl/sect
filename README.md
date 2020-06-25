@@ -16,3 +16,6 @@ If you use a macOS version <10.15, you may be lucky by installing Mono & running
 
 # Screenshots
 
+![Point addition Z_p](/screenshots/add_z_p.png?raw=true "Point addition for elliptic curve over Z_p")
+![Point multiplication Z_p](/screenshots/mult_z_p_log.png?raw=true "Point multiplication for a curve over Z_p with log")
+![Point addition R](/screenshots/add_r.png?raw=true "Point addition for elliptic curve over R")
