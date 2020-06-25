@@ -120,7 +120,9 @@
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="labelTip.Text" xml:space="preserve">
+    <value>Click on points in the graph above to select them for addition/multiplication.  
+- Click with left mouse button to select P (or S when in multiplication tab).
+- Click with right mouse button to select Q.</value>
+  </data>
 </root>

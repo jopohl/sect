@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainform));
             this.picBoxGraph = new System.Windows.Forms.PictureBox();
             this.groupBoxCurrentCurve = new System.Windows.Forms.GroupBox();
             this.flpAktuelleKurve = new System.Windows.Forms.FlowLayoutPanel();
@@ -68,8 +69,8 @@
             this.checkBoxEqualAspectRatio = new System.Windows.Forms.CheckBox();
             this.numericUpDownXMax = new System.Windows.Forms.NumericUpDown();
             this.btnSaveGraph = new System.Windows.Forms.Button();
-            this.lCopyright = new System.Windows.Forms.Label();
             this.tlpFooter = new System.Windows.Forms.TableLayoutPanel();
+            this.labelTip = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxGraph)).BeginInit();
             this.groupBoxCurrentCurve.SuspendLayout();
             this.flpAktuelleKurve.SuspendLayout();
@@ -567,28 +568,16 @@
             this.btnSaveGraph.UseVisualStyleBackColor = true;
             this.btnSaveGraph.Click += new System.EventHandler(this.btnSaveGraph_Click);
             // 
-            // lCopyright
-            // 
-            this.lCopyright.AutoSize = true;
-            this.lCopyright.BackColor = System.Drawing.Color.Black;
-            this.lCopyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCopyright.ForeColor = System.Drawing.Color.Red;
-            this.lCopyright.Location = new System.Drawing.Point(1066, 25);
-            this.lCopyright.Margin = new System.Windows.Forms.Padding(3, 25, 3, 0);
-            this.lCopyright.Name = "lCopyright";
-            this.lCopyright.Size = new System.Drawing.Size(142, 16);
-            this.lCopyright.TabIndex = 17;
-            this.lCopyright.Text = "© Johannes Pohl, 2012";
-            // 
             // tlpFooter
             // 
             this.tlpFooter.AutoSize = true;
-            this.tlpFooter.ColumnCount = 3;
+            this.tlpFooter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tlpFooter.ColumnCount = 2;
             this.tlpFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpFooter.Controls.Add(this.groupBoxGraphoptions, 0, 0);
-            this.tlpFooter.Controls.Add(this.lCopyright, 2, 0);
+            this.tlpFooter.Controls.Add(this.labelTip, 1, 0);
             this.tlpFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tlpFooter.Location = new System.Drawing.Point(0, 557);
             this.tlpFooter.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
@@ -598,6 +587,16 @@
             this.tlpFooter.Size = new System.Drawing.Size(1211, 59);
             this.tlpFooter.TabIndex = 18;
             this.tlpFooter.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tlpFooter_CellPaint);
+            // 
+            // labelTip
+            // 
+            this.labelTip.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelTip.AutoSize = true;
+            this.labelTip.Location = new System.Drawing.Point(842, 10);
+            this.labelTip.Name = "labelTip";
+            this.labelTip.Size = new System.Drawing.Size(366, 39);
+            this.labelTip.TabIndex = 3;
+            this.labelTip.Text = resources.GetString("labelTip.Text");
             // 
             // Mainform
             // 
@@ -685,8 +684,8 @@
         private System.Windows.Forms.CheckBox checkBoxEqualAspectRatio;
         private System.Windows.Forms.NumericUpDown numericUpDownXMax;
         private System.Windows.Forms.Button btnSaveGraph;
-        private System.Windows.Forms.Label lCopyright;
         private System.Windows.Forms.TableLayoutPanel tlpFooter;
+        private System.Windows.Forms.Label labelTip;
     }
 }
 
