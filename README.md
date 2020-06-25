@@ -1,4 +1,6 @@
 # Simple Elliptic Curve Tool
+A simple tool for learning and teaching elliptic curves.
+
 This tool runs on Windows and Linux without installation. Download the latest version from the [releases page](https://github.com/jopohl/sect/releases) and follow the instructions for your OS below.
 
 ##### Windows
